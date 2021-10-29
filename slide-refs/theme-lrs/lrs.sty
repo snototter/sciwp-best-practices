@@ -1,0 +1,280 @@
+%% LRS Beamer Theme
+%
+% Modifications:
+% * 12/2017 Horst P initial version
+%
+%% Since we abuse usepackage to contain this theme in a separate folder, we cannot add ProvidesPackage!
+\mode<presentation>
+\makeatletter
+% Requirements
+% \RequirePackage{tikz}
+\usepackage{tikz}
+\usepackage{calc}
+\let\heightof=\pgfmath@calc@heightof
+% \RequirePackage{xcolor}
+
+% TODOs
+% * Provide option to switch between EN and DE (science,passion,technology vs wissen, technik, leidenschaft)
+
+%%%%%%%%%%%%%%%%%%%%%%%5
+% Drawing with tikz
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+
+%%% Packages and definitions from beamertheme TUG 
+\usepackage{helvet}
+\usepackage{soul}
+\newcommand{\tugsquare}{\raisebox{0.5ex}{\tikz{\fill (0,0) rectangle (0.5ex,0.5ex);}}} % The square between science, passion, technology credo
+\sodef\so{}{0.85em}{1.5em}{0em} % stretch-out spacing for the science, passion, technology credo
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Color theme
+% 
+% TUG
+\definecolor{ctugred}{rgb}{0.96862,0.14509,0.27450}
+\definecolor{ctuggray}{rgb}{0.8,0.8,0.8}
+% LRS
+\definecolor{clrsred}{RGB}{255,0,17}
+\definecolor{clrsgreen}{RGB}{0,137,61}
+\definecolor{clrsblue}{RGB}{0,107,152}
+
+% User-adjustable colors:
+\newcommand{\colorslidenumberbg}{ctugred}
+\newcommand{\colorframetitle}{black!85}
+
+
+%% Beamer colors
+\setbeamercolor{normal text}{fg=black!85}
+\setbeamercolor{frametitle}{fg=black!85}
+\setbeamercolor{title}{fg=ctugred}
+% \setbeamercolor{part page}{fg=black!85}
+\setbeamercolor{author}{fg=black!85}
+
+%% Beamer fonts
+\setbeamerfont{title}{size=\Large,series=\bfseries}%{size*={20}{22}}
+\setbeamerfont{author}{size=\large,series=\bfseries}%{size*={10}{12},series=\bfseries}
+\setbeamerfont{date}{size=\scriptsize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Outer theme, i.e. header and footer
+
+% Frame title, i.e. the header
+\defbeamertemplate*{frametitle}{lrs}[1][]
+{
+  \vskip0.2cm%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1cm]{frametitle} 
+  \begin{tikzpicture}%[overlay,remember picture]%
+    \useasboundingbox[fill=white](0,0) rectangle(\the\paperwidth,1);%
+    % Block with frame number; background color is given by \colorslidenumberbg
+    \fill[\colorslidenumberbg] (0,0) rectangle (1,1);%
+    \node[anchor=center, white, font=\small, inner sep=0pt] at (0.5, 0.5){\insertframenumber};%
+    % Title
+    \ifx\insertframesubtitle\@empty{%
+      \node[anchor=base west, \colorframetitle,font=\large, inner sep=0pt, outer sep=0pt, minimum height=0.5cm] at (1.1,0.35){\insertframetitle};%
+    } \else {%
+%       \PackageError{beamerthemelrs}{Don't provide a sub-title!}{}
+      \node[anchor=base west, \colorframetitle,font=\large, inner sep=0pt, outer sep=0pt, minimum height=0.5cm] at (1.1,0.55){\insertframetitle};%
+      \node[anchor=base west, \colorframetitle,font=\footnotesize, inner sep=0pt, outer sep=0pt, minimum height=0.4cm] at (1.1,0.1){\insertframesubtitle};%
+    }\fi%
+  \end{tikzpicture}%
+  \end{beamercolorbox}
+}
+% \mode<all>
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inner theme, everything inside the slide (except for header and footer)
+
+% General!
+% \setbeamersize{text margin left=10mm,text margin right=30mm} 
+% \setlength{\leftmargin}{1em}
+
+% Background of all the slides
+\setbeamertemplate{background}{
+  \begin{tikzpicture}
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \ifnum\value{page}=1 % TODO what if first page should not be the title page?
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      % Title slide
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      % Gradient background (gray to white)
+      \fill[white] (0,0) rectangle (\paperwidth,\paperheight);
+      \shade[shading=axis,bottom color=black!35,top color=white] (0,0) rectangle (\paperwidth,0.92\paperheight);
+      % Overlay the university sketch
+      \node at (0.5\paperwidth,0.45\paperheight) {\includegraphics[width=0.95\paperwidth]{bg_tug.png}};
+      % Overlay our 'credo'
+      \node[inner sep=0pt,anchor=north west] at (0.05\paperwidth,0.95\paperheight) { %\color{black}\fontsize{6}{6}\selectfont\so{WISSEN \tugsquare{} TECHNIK \tugsquare{} LEIDENSCHAFT}
+        \color{black}\fontsize{6}{6}\selectfont\so{SCIENCE \tugsquare{} PASSION \tugsquare{} TECHNOLOGY}
+      };
+      % Top-right corner: TUG logo
+      \node[inner sep=0pt, anchor=east] at (0.95\paperwidth, 0.95\paperheight) {\includegraphics[width=0.1\paperwidth]{logo_tug.png}};
+      % Place ICG and LRS logo at the bottom
+      \node[inner sep=0pt, anchor=east] at (0.95\paperwidth, 0.1\paperheight) {\includegraphics[height=0.08\paperwidth]{logo_icg.png}};
+      \node[inner sep=0pt, anchor=west] at (0.05\paperwidth, 0.1\paperheight) {\includegraphics[height=0.08\paperwidth]{logo_lrs.png}};
+    \else 
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      % Content slide
+      %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+      \fill[white,opacity=1] (0,0) rectangle(\the\paperwidth,\the\paperheight);
+    \fi
+  \end{tikzpicture}
+}
+
+% Title page, ie \titlepage
+\defbeamertemplate*{title page}{lrs}[1][]
+{ 
+  \vfill
+% grausliger hack, better: use newgeometry AtBeginDocument{...} rather than  \hskip-0.5\lenleftmargin
+    \begin{beamercolorbox}[wd=0.9\paperwidth,leftskip=0pt, #1]{title page header}
+      \usebeamercolor[fg]{title}\usebeamerfont{title}\inserttitle\par%
+    \end{beamercolorbox}%
+    \vskip0.5cm
+    \begin{beamercolorbox}[wd=0.8\paperwidth,leftskip=0pt, #1]{author}
+      \usebeamercolor[fg]{author}\usebeamerfont{author}\insertauthor\par%
+    \end{beamercolorbox}%
+    \vskip0.2cm
+    \begin{beamercolorbox}[wd=0.8\paperwidth,leftskip=0pt, #1]{date}
+      \usebeamercolor[fg]{date}\usebeamerfont{date}\insertdate\par%
+    \end{beamercolorbox}%
+  \vfill
+}
+
+
+% Section opener, ie \sectionpage
+\defbeamertemplate*{section page}{lrs}[1][]
+{ 
+   \vfill
+    \begin{beamercolorbox}[wd=12cm,leftskip=1.5cm,sep=8pt,#1]{title page header}
+      \usebeamerfont{title}\textcolor{\colorslidenumberbg}{\insertsection}\par%
+    \end{beamercolorbox}%
+    \vskip0.75cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=1.5cm,#1]{author}
+      \usebeamerfont{author}\insertauthor%
+    \end{beamercolorbox}
+     \vskip0.2cm%
+    \begin{beamercolorbox}[wd=12cm,leftskip=1.5cm,#1]{date}
+      \usebeamerfont{author}\insertdate%
+    \end{beamercolorbox}
+  \vfill
+}
+
+%% Customize itemize and enumerate
+% Custom colors for each level:
+\newcommand{\coloritemizei}{ctugred}
+\newcommand{\coloritemizeii}{clrsgreen}
+\newcommand{\coloritemizeiii}{clrsblue}
+% 
+% Custom (square) bullets for itemize:
+\setbeamertemplate{itemize item}{{\raisebox{0.3ex}{\tikz{\fill[\coloritemizei] (0,0) rectangle (0.6ex,0.6ex);}}}}
+\setbeamertemplate{itemize subitem}{{\raisebox{0.3ex}{\tikz{\fill[\coloritemizeii] (0,0) rectangle (0.6ex,0.6ex);}}}}
+\setbeamertemplate{itemize subsubitem}{{\raisebox{0.3ex}{\tikz{\fill[\coloritemizeiii] (0,0) rectangle (0.6ex,0.6ex);}}}}
+% 
+% Custom enumeration
+\setbeamertemplate{enumerate item}{\textcolor{\coloritemizei}{\insertenumlabel.}}
+\setbeamertemplate{enumerate subitem}{\textcolor{\coloritemizeii}{\insertsubenumlabel.}}
+\setbeamertemplate{enumerate subsubitem}{\textcolor{\coloritemizeiii}{\insertsubsubenumlabel.}}
+% 
+%% Customize item spacing in beamer
+% \newlength{\myitemsep}
+% \setlength{\myitemsep}{\itemsep}
+% \addtolength{\myitemsep}{-5pt}
+% \let\olditem\item
+% \renewcommand{\item}{\setlength{\itemsep}{\myitemsep}\olditem}
+% 
+% Customize left margins of itemize and enumeration
+\newlength{\leftmarginiitemize}
+\newlength{\leftmarginiiitemize}
+\newlength{\leftmarginiiiitemize}
+\newlength{\leftmarginienumerate}
+\newlength{\leftmarginiienumerate}
+\newlength{\leftmarginiiienumerate}
+\setlength{\leftmarginiitemize}{2ex}
+\setlength{\leftmarginiiitemize}{2ex}
+\setlength{\leftmarginiiiitemize}{2ex}
+\setlength{\leftmarginienumerate}{3ex}
+\setlength{\leftmarginiienumerate}{3ex}
+\setlength{\leftmarginiiienumerate}{3ex}
+% 
+% Redefine itemize to properly use the new indentation/margins
+\newenvironment{lrsitemize}{\bgroup\setlength{\leftmargini}{\leftmarginiitemize}\setlength{\leftmarginii}{\leftmarginiiitemize}\setlength{\leftmarginiii}{\leftmarginiiiitemize}\itemize}{\enditemize\egroup}
+% \makeatletter
+% \let\olditemize\itemize
+% \let\oldenditemize\enditemize
+% \def\itemize{\begingroup%
+%   \setlength{\leftmargini}{\leftmarginiitemize}%
+%   \setlength{\leftmarginii}{\leftmarginiiitemize}%
+%   \setlength{\leftmarginiii}{\leftmarginiiiitemize}%
+%   \olditemize
+% %   \olditemize%
+% }
+% \def\enditemize{\oldenditemize \endgroup}
+% \makeatother
+% 
+% Redefine enumerate to use the correct margins
+\newenvironment{lrsenumerate}{\bgroup\setlength{\leftmargini}{\leftmarginienumerate}\setlength{\leftmarginii}{\leftmarginiienumerate}\setlength{\leftmarginiii}{\leftmarginiiienumerate}\enumerate}{\endenumerate\egroup}
+% \let\oldenumerate\enumerate
+% \let\oldendenumerate\endenumerate
+% \def\enumerate{\begingroup%
+%   \setlength{\leftmargini}{\leftmarginienumerate}%
+%   \setlength{\leftmarginii}{\leftmarginiienumerate}%
+%   \setlength{\leftmarginiii}{\leftmarginiiienumerate}%
+%   \oldenumerate%
+% }
+% \def\endenumerate{\oldendenumerate \endgroup}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TODO stuff
+
+% I prefer serif math!
+% \usefonttheme[onlymath]{serif}
+
+\setbeamertemplate{navigation symbols}{}
+% \setbeamertemplate{blocks}[rounded][shadow=true]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Custom command to place/overlay figure wherever you want
+% PUTFIGURE <file>, <options for includegraphics>, <offset from page center>
+% Coordinate offset is provided from the <page center>, positive values go to the right & up.
+% Example: \putfigure{foo.pdf}{width=.2\textwidth}{(2,-1)}  -- will center foo.pdf 2cm to the right and 1cm below the page center
+\newcommand{\putfigure}[3]{%
+  \tikz[remember picture, overlay] \node[anchor=center] at ([shift={#3}]current page.center) {\includegraphics[#2]{#1}};%
+}
+\newcommand{\putfigureboxed}[3]{%
+  \tikz[remember picture, overlay] \node[anchor=center] at ([shift={#3}]current page.center) {\fbox{\includegraphics[#2]{#1}}};%
+}
+\newcommand{\putfigurelbl}[4]{%
+  \tikz[remember picture, overlay] \node[anchor=center,label={[label distance=-0.1cm]270:{#4}}] at ([shift={#3}]current page.center) {\includegraphics[#2]{#1}};%
+}
+\newcommand{\putfigureboxedlbl}[4]{%
+  \tikz[remember picture, overlay] \node[anchor=center,label={[label distance=-0.1cm]270:{#4}}] at ([shift={#3}]current page.center) {\fbox{\includegraphics[#2]{#1}}};%
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Place text on the slide's footline region (bottom aligns the south west corner & prints everything you give to it...)
+\newcommand{\footlineextraw}[2]{
+  \begin{tikzpicture}[remember picture,overlay]%
+    \node[yshift=-0.1cm,anchor=south west] (footlinecontent) at (current page.south west) {\parbox{#2}{#1}};%
+    \draw[line width=0.5pt] ([yshift=-0.8ex]footlinecontent.north west) -- ([shift={(3cm,-0.8ex)}]footlinecontent.north west);% line above the 'footnote' text to separate from slide content
+  \end{tikzpicture}%
+}
+\newcommand{\footlineextra}[1]{
+  \footlineextraw{#1}{\textwidth}
+}
+
+% Hanging indent for lrsitemize within footlineextra (to place per-slide citations)
+% https://tex.stackexchange.com/questions/79938/hanging-indent-inside-list
+\newlength\footcitelistindent
+\setlength\footcitelistindent{8pt}
+
+\makeatother
+\mode<all>
+
+
+% Fix left margin...
+% https://tex.stackexchange.com/questions/142569/full-width-image-in-beamer/334751#334751
+\newcommand{\lrsslidegeometry}{\newgeometry{left=5mm,right=5mm,top=5mm,bottom=5mm}}
+\AtBeginDocument{\lrsslidegeometry}
+% DO NOT change the geometry for a single slide and then try to reset it, THIS WILL SCREW UP YOUR GEOMETRY!! (unless you're smarter than me - if so, please let me know how this works...)

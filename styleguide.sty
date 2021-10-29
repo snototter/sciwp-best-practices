@@ -1,0 +1,369 @@
+%----------------------------------------------------------------------
+% Styles for Scientific Writing/Presenting Do's and Don'ts
+%
+% History:
+% * 28.11.2017 (snototter) - created
+% * 12.02.2020 (snototter) - extend BibTeX examples with exemplary ``rendering''
+% *    10.2021 (snototter) - prepare public release
+%
+% This class extends the article class
+%----------------------------------------------------------------------
+
+% \NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{styleguide}[2021/11/01 v1.2 Style Guide for SciWP]
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Packages
+%
+% Layout
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=14pt]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+% 
+% Math
+\usepackage{amsmath}           
+\usepackage{amssymb}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+% 
+% Figures/Graphics
+\usepackage[pdftex]{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{subfig}
+% 
+\usepackage{xcolor}
+% 
+\usepackage[margin=1cm]{caption}
+%
+\usepackage{enumitem}
+%
+% Header/Footer
+\usepackage{fancyhdr}
+% 
+\usepackage{textcomp}
+\usepackage{verbatim} 
+\usepackage{changepage}
+% 
+\usepackage{multibib}
+% 
+% Version command
+\def\version#1{\gdef\@version{#1}}
+\def\@version{\@latex@warning@no@line{No \noexpand\version given}}
+% 
+% Width of title page
+\newlength{\titlewidth}
+\setlength{\titlewidth}{13cm}
+%
+% Colors
+\definecolor{lgray}{RGB}{80,80,80}
+\definecolor{good}{RGB}{40,140,10}
+\definecolor{bad}{RGB}{220,10,0}
+%
+% Set header/footer style for text pages
+\newcommand{\ewapagestyle}{%
+  \pagenumbering{arabic}%
+  \setcounter{page}{1}%
+  \pagestyle{fancy}%
+  \fancyhf{}% Reset header and footer
+  \rhead{\textcolor{lgray}{Dos and Don'ts}}%
+  \lhead{\textcolor{lgray}{Scientific Writing \& Presenting}}%
+  \renewcommand{\headrulewidth}{0pt}% Remove the header line
+  \cfoot{\textcolor{lgray}{\thepage}}%
+}
+% 
+%
+%% Layout for the title page
+%
+\renewcommand{\maketitle}{%
+  \pagestyle{empty}%
+  \pagenumbering{roman}%
+  \begin{center}%
+    \begin{minipage}{\titlewidth}%
+      \vspace*{5cm}%
+      \centering%
+      {\LARGE\bfseries\@title}\\[1cm]%
+        {\normalsize A beginner's guide to avoid common mistakes and\\pitfalls when creating scientific works\\[4cm]{\large\@author}}%\\[6cm]%
+%TODO remove?         {\footnotesize This Handout complements the Seminar\\[0.5em]\emph{Writing Scientific Papers\\[0.2em](Verfassen wissenschaftlicher Arbeiten)\\[0.2em]INH.01121UF}}}%
+    \end{minipage}%
+  \end{center}%
+  \vfill%
+  \begin{center}
+    \begin{minipage}{\titlewidth}%
+      \centering%
+      {\footnotesize Version \@version\\Graz, \@date%
+      }%
+    \end{minipage}%
+  \end{center}%
+  \newpage%
+  \ewapagestyle%
+}
+% 
+% Automatically add the title page
+\AtBeginDocument{\maketitle}
+% 
+% 
+% Commands to highligh good/bad styles
+%
+\newcommand{\highlight}[2]{\textbf{\textcolor{#1}{#2}}}
+\newcommand{\goodstyle}[1]{\highlight{good}{#1}}
+\newcommand{\badstyle}[1]{\highlight{bad}{#1}}
+\newcommand{\todo}[1]{\highlight{bad}{TODO: #1}}
+% 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Styles for good/bad examples
+%
+% Check mark and X mark
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+\definecolor{cgood}{RGB}{40,150,10}
+\definecolor{cbad}{RGB}{220,10,0}
+
+\usepackage{environ}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage{float} %to allow floats within minipages
+
+% Load tocloft with these options to prevent compile clashes!
+\usepackage[titles,subfigure]{tocloft}
+%
+% Define counter and list of examples (texexample, goodexample, badexample)
+\newcommand{\listewaexamples}{List of Guideline Examples}
+\newlistof{ewaexample}{ewa}{\listewaexamples}
+\newcommand{\ewaexample}[1]{%
+  \refstepcounter{ewaexample}
+%   \par\noindent\textbf{EWA Example \theewaexample. #1}
+  \addcontentsline{ewa}{ewaexample}{\protect\numberline{\theewaexample}#1}\par}
+
+% Define counter and list of exemplary bibtex entries
+\newcommand{\listewabibentry}{List of Bibliography Entries (Mandatory Fields)}
+\newlistof{ewabibentry}{ewb}{\listewabibentry}
+\newcommand{\ewabibentry}[1]{%
+  \refstepcounter{ewabibentry}
+  \addcontentsline{ewb}{ewabibentry}{\protect\numberline{\theewabibentry}#1}\par}
+
+\NewEnviron{texexample}[1][Example]{%
+  \begin{center}
+  \ewaexample{#1}
+%     \begin{NoHyper}
+      \begin{tcolorbox}[enhanced jigsaw,
+          breakable,
+          width=\dimexpr0.95\textwidth-2\fboxrule-2\fboxsep\relax,
+	  colback=blue!5,%gray background
+	  colframe=blue!80,% frame color
+	  arc=3mm, auto outer arc,
+	  boxrule=2pt,
+	  drop shadow={blue!50!gray!50},
+	  % Boxed title:
+	  attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+	  fonttitle=\bfseries,
+	  colbacktitle=blue!5,coltitle=black,
+	  boxed title style={size=normal,colframe=white,boxrule=3pt,boxsep=-3pt,arc=1pt},
+	  title={Guideline Example \theewaexample: #1}
+	  ]
+    \vspace{0.3em}%
+	\setstretch{1.2}
+	\setlength{\parindent}{0pt}
+        \BODY
+      \end{tcolorbox}
+%     \end{NoHyper}
+  \end{center}%
+}
+
+
+\NewEnviron{goodexample}[1][Correct]{%
+  \begin{center}
+  \ewaexample{#1}
+%     \begin{NoHyper}
+      \begin{tcolorbox}[enhanced jigsaw,
+          breakable,
+          width=\dimexpr0.95\textwidth-2\fboxrule-2\fboxsep\relax,
+	  colback=cgood!5,% background
+	  colframe=cgood,% frame color
+	  arc=3mm, auto outer arc,
+	  boxrule=2pt,
+	  drop shadow={cgood!50!gray!50},
+	  % Boxed title:
+	  attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+	  fonttitle=\bfseries,
+	  colbacktitle=cgood!5,coltitle=black,
+	  boxed title style={size=normal,colframe=white,boxrule=3pt,boxsep=-3pt,arc=3pt},
+	  title={Guideline Example \theewaexample: #1}
+	  ]
+	\setstretch{1.2}%
+	\vspace{0.3em}%
+	\setlength{\parindent}{0pt}
+        \BODY
+      \end{tcolorbox}
+%     \end{NoHyper}
+  \end{center}%
+}
+
+
+\NewEnviron{badexample}[1][Incorrect]{%
+  \begin{center}
+  \ewaexample{#1}
+%     \begin{NoHyper}
+      \begin{tcolorbox}[enhanced jigsaw,
+          breakable,
+	  width=\dimexpr0.95\textwidth-2\fboxrule-2\fboxsep\relax,
+	  colback=cbad!5,% background
+	  colframe=cbad,% frame color
+	  arc=3mm, auto outer arc,
+	  boxrule=3pt,
+	  drop shadow={cbad!50!gray!50},
+	  % Boxed title:
+	  attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+	  fonttitle=\bfseries,
+	  colbacktitle=cbad!5,coltitle=black,
+	  boxed title style={size=normal,colframe=white,boxrule=3pt,boxsep=-3pt,arc=3pt},
+	  title={Guideline Example \theewaexample: #1}
+	  ]
+	   \vspace{0.3em}%
+        \setstretch{1.2}
+	\setlength{\parindent}{0pt}
+        \BODY
+      \end{tcolorbox}
+%     \end{NoHyper}
+  \end{center}%
+}
+
+\usepackage{verbatim}
+%% Indentation of verbatim latex examples
+\newlength\myverbindent 
+\setlength\myverbindent{1em} % change this to change indentation
+\makeatletter
+\def\verbatim@processline{%
+  \hspace{\myverbindent}\the\verbatim@line\par}
+\makeatother
+
+%% Font size of verbatim examples
+\makeatletter
+\newcommand{\verbatimfont}[1]{\renewcommand{\verbatim@font}{\ttfamily#1}}
+\makeatother
+
+%% Show the latex example (include from file)
+\newcommand{\inlatex}[1]{%
+  \vspace{1.5em}\begin{minipage}[c]{1.5em}%
+  \rotatebox{90}{\LaTeX}%
+  \end{minipage}%
+  \vline width 1.2pt\relax%
+  \begin{minipage}[c]{\dimexpr\textwidth-2em\relax}%
+    \setstretch{1.0}
+    \verbatimfont{\small}%
+    \verbatiminput{#1}%
+  \end{minipage}%
+}
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibtex Examples
+\newcommand{\bibtexample}[5]{%
+ \begin{center}
+    \ewabibentry{#1}
+    \begin{tcolorbox}[enhanced jigsaw,
+	breakable,
+	width=\dimexpr0.95\textwidth-2\fboxrule-2\fboxsep\relax,
+	colback=blue!5,%gray background
+	colframe=blue!80,% frame color
+	arc=3mm, auto outer arc,
+	boxrule=3pt,
+	drop shadow={blue!50!gray!50},
+	% Boxed title:
+	attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+	fonttitle=\bfseries,
+	colbacktitle=blue!5,coltitle=black,
+	boxed title style={size=normal,colframe=white,boxrule=3pt,boxsep=-3pt,arc=3pt},
+	title={Bibliography Example \theewabibentry: #1}
+	]
+	  \vspace{0.3em}%
+	  \def\temp{#5}\ifx\temp\empty\else%
+        \textbf{BibTeX entry:}
+        \vspace{0.5em}
+      \fi
+      \setlength{\parindent}{0pt}%
+      \verbatimfont{\small}%
+      \verbatiminput{#2}%
+      \def\temp{#3}\ifx\temp\empty\else%
+       \vspace{1em}
+       \textbf{Corresponding bibliography entry:}
+       \vspace{0.5em}
+       \begin{adjustwidth}{12pt}{}
+       #3
+       \end{adjustwidth}
+       
+      \fi%
+      \def\temp{#4}\ifx\temp\empty\else%
+       \vspace{1em}
+       \textbf{Caveats:}
+       #4%
+      \fi
+    \end{tcolorbox}%
+  \end{center}%
+}
+\newcommand{\bibtexampleplain}[2]{%
+ \begin{center}
+    \ewabibentry{#1}
+    \begin{tcolorbox}[enhanced jigsaw,
+	breakable,
+	width=\dimexpr0.95\textwidth-2\fboxrule-2\fboxsep\relax,
+	colback=blue!5,%gray background
+	colframe=blue!80,% frame color
+	arc=3mm, auto outer arc,
+	boxrule=3pt,
+	drop shadow={blue!50!gray!50},
+	% Boxed title:
+	attach boxed title to top center= {yshift=-\tcboxedtitleheight/2},
+	fonttitle=\bfseries,
+	colbacktitle=blue!5,coltitle=black,
+	boxed title style={size=normal,colframe=white,boxrule=3pt,boxsep=-3pt,arc=3pt},
+	title={Bibliography Example \theewabibentry: #1}
+	]
+      \setlength{\parindent}{0pt}%
+      \vspace{0.3em}%
+      #2%
+    \end{tcolorbox}%
+  \end{center}%
+}
+
+
+\newcommand{\exemplarybibline}[2]{%
+  \begin{minipage}[t]{2em}%
+   #1%
+  \end{minipage}%
+  \begin{minipage}[t]{\dimexpr\linewidth-2em\relax}%
+   #2%
+  \end{minipage}%
+  \vspace*{6pt}%
+}
+
+
+% Provide hyperref-less links to avoid hyperref confusion...
+% \newcommand{\nohrefcite}[1]{\begin{NoHyper}\cite{#1}\end{NoHyper}}
+\newcommand{\nohrefcite}[1]{{\protect\NoHyper\cite{#1}\protect\endNoHyper}}
+\newcommand{\nohref}[1]{\begin{NoHyper}\ref{#1}\end{NoHyper}}
+
+\usepackage{bibentry}
+\nobibliography*
+% https://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv
+\makeatletter\let\saved@bibitem\@bibitem\makeatother
+% Hyperref/URLs
+\usepackage[%
+  plainpages=false,
+  pdfpagelabels,  %pagebackref,
+  colorlinks=true,
+  citecolor=blue,
+  linkcolor=blue,   % color of hyperref links
+  urlcolor=blue,     % color of page of \url{...}
+  breaklinks=true   % break links if exceeding a single line
+  ]{hyperref}
+
+% \usepackage{hyperref}
+% https://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv
+% https://tex.stackexchange.com/questions/387937/bibentry-with-template-causes-error-lonely-item-perhaps-a-missing-list-enviro
+\makeatletter\let\@bibitem\saved@bibitem\makeatother
+% https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
+% \AtBeginDocument{\let\textlabel\label}
+%% End of file

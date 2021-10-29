@@ -1,0 +1,99 @@
+\documentclass{beamer}
+% \documentclass[handout]{beamer} % collapses the animations to a single page per slide
+\usepackage{etex}
+\usepackage[utf8]{inputenc}
+
+\title{An Intent-Based Automated Traffic Light\\for Pedestrians}
+\author[Horst]{H. Possegger}
+\date{29 Nov 2018}
+
+%% To allow theme in local sub-folder:
+% https://tex.stackexchange.com/questions/123700/how-to-use-local-beamer-theme-in-project-source-folder
+\graphicspath{{./theme-lrs/}{./figures/}}
+\usepackage{theme-lrs/lrs}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{positioning}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\pgfplotsset{every tick label/.append style={font=\scriptsize}}
+\pgfplotsset{every axis label/.append style={font=\scriptsize}}
+\usepgfplotslibrary{colorbrewer}
+% \pgfplotsset{cycle list/Set1-3}
+% \pgfplotsset{cycle list/Set1-5}
+\pgfplotsset{cycle list/Set1-3}
+
+\usepgfplotslibrary{statistics}
+
+% \usetikzlibrary{shadings}
+
+\DeclareRobustCommand{\trajpoint}[1]{\tikz{\draw[fill=#1,line width=0.5pt] circle(0.5ex);}}
+\definecolor{lpwd}{rgb}{0.0, 1.0, 1.0}
+\definecolor{startpoint}{rgb}{0.0, 0.5, 0.0}
+\definecolor{endpoint}{rgb}{1.0, 0.0, 0.0}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% My packages
+\usepackage{overpic}
+\usepackage{nicefrac}
+\usepackage{mathtools}
+
+% Draw figure anywhere above the text:
+% \usepackage{textpos}
+% \setlength{\TPHorizModule}{1cm} % horizontal unit
+% \setlength{\TPVertModule}{1cm} % vertical unit
+
+% Calculate with lengths (-fboxrule....; to get the framed white images right)
+\usepackage{calc}
+% 
+% Table stuff
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{array}
+% Hide columns
+\newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
+% Animated table columns - https://tex.stackexchange.com/questions/345815/table-column-animation-in-beamer-not-showing-table-lines-and-notes
+\newsavebox{\mybox}
+\newcolumntype{A}[2]{>{\begin{lrbox}{\mybox}}#1<{\end{lrbox}
+  \onslide<#2>{\unhbox\mybox}}}
+
+%%%% Checkmark symbol
+% https://tex.stackexchange.com/questions/42619/x-mark-to-match-checkmark
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+% Resize image text overlay: https://tex.stackexchange.com/questions/57673/how-to-get-an-even-smaller-font
+\newcommand{\supertiny}{\fontsize{5}{5}\selectfont}
+
+% \usepackage[backend=bibtex]{biblatex}
+
+% \usepackage{media9}
+\usepackage{multimedia}
+\usepackage{hyperref}
+
+\vspace{-0.25cm}
+\def\matlab{\textsc{Matlab}}
+\def\mex{\textsc{Matlab}/\textsc{Mex}}
+\def\cpp{\textsc{C/C++}}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+% Title page
+\begin{frame}
+\titlepage
+\end{frame}
+
+\renewcommand{\colorslidenumberbg}{clrsblue}
+\input{slide_figure.tex}
+
+\input{slide_multiple_papers.tex}
+
+\input{slide_single_paper.tex}
+
+\input{bad_slides.tex}
+
+\end{document}

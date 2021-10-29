@@ -1,0 +1,47 @@
+\renewcommand{\colorslidenumberbg}{clrsred}
+\renewcommand{\insertframenumber}{}
+\begin{frame}
+
+  \frametitle{How to prepare a bad slide?}
+  \framesubtitle{\textcolor{clrsred}{\textbf{Don't do this!}}}
+  \vspace{-0.6cm}
+  \begin{lrsitemize}
+    \setlength{\itemsep}{6pt}
+    \item Mix {\fontfamily{serif}\selectfont different fonts} and {\scriptsize sizes}
+    \item Don't check fr typogrphicl mistakes
+    \item Use punctuation inconsistently.
+    \item Forget the slide number so noone can refer to this slide
+    \item Put all the text you're going to say on the slide -- surely, your audience loves to read along with you
+    \item Save the references for the last slide, so nobody knows which papers you're currently talking about
+    \item Mix different citation styles (\emph{e.g.} [1] and [VWA'19])
+    \item Don't typeset equations, but include low-quality screenshots instead:
+  \end{lrsitemize}
+  \putfigure{bad-equation}{width=4cm}{(-2cm,-3.7cm)}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A list of all my references}
+  \framesubtitle{\textcolor{clrsred}{\textbf{Don't do this!}}}
+  \begin{lrsitemize}
+    \setlength{\itemsep}{3pt}
+    \item Don't forget to \textcolor{clrsred}{\textbf{be inconsistent}} (with respect to conference/journal naming, reference style, etc.)
+    \item Use tiny/small font sizes so you can fit all references in this list
+  \end{lrsitemize}
+  \begin{lrsitemize}
+    % See https://tex.stackexchange.com/questions/79938/hanging-indent-inside-list on how to make a hanging indent
+    \newlength\listindent
+    \setlength\listindent{12pt}
+    \parshape 2 0cm \linewidth \listindent \dimexpr\linewidth-\listindent\relax
+    \scriptsize
+    \setlength{\itemsep}{3pt}
+    \item[] [1] Cavanagh \& Alvarez. \emph{Tracking Multiple Targets with Multifocal Attention.} TICS 9(7), 2005
+    \item[] [2] Doll\'ar, \emph{et al.} \emph{Pedestrian Detection: An Evaluation of the State of the Art.} TPAMI 34(4), 2012
+    \item[] [3] Liu, \emph{et al.} \emph{SSD: Single Shot MultiBox Detector.} ECCV'16
+    \item[] [4] Krizhevsky \emph{et al.} \emph{ImageNet Classification with Deep Conv. Neural Networks.} NIPS'12
+    \item[] \textcolor{clrsred}{[Poier'18]} Poier, \emph{et al}. \emph{Learning Pose Specific Representations by Predicting Different Views}. CVPR'18.
+    \item[] [5] Possegger, \emph{et al.} \emph{Occlusion Geodesics for Online Multi-Object Tracking.} IEEE Conference on Computer Vision and Pattern Recognition (\textcolor{clrsred}{instead of the acronym \textbf{CVPR} as for the other references}), 2014 (\textcolor{clrsred}{instead of the abbreviated \textbf{'14} as for other conference papers}).
+    \item[] [6] Romero, \emph{et al.} \emph{FitNets: Hints for Thin Deep Nets.} ICLR'15
+    \item[] [7] Rudelsdorfer \emph{et al.} \emph{A novel Method for the Analysis of Sequential Actions in Team Handball.} IJCSS 13(1), 2014
+    \item[] [8] Sternig \emph{et al.} \emph{Multi-camera Multi-object Tracking by Robust Hough-based Homography Projections.} ICCVW VS'11
+  \end{lrsitemize}
+\end{frame}

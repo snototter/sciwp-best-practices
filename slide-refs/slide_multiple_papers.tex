@@ -1,0 +1,33 @@
+\begin{frame}
+  \frametitle{An Efficient Multi-Object Detection \& Tracking Framework}
+  \vspace{-1.5cm}
+  \begin{lrsitemize}    
+    \item Accuracy/runtime trade-off:
+    \begin{lrsitemize}
+      \item Single Shot MultiBox detector [3]
+      \item Backbone: compressed AlexNet [2,5]
+      \item Optimized implementation\\with \textbf{AVX2 instructions}
+    \end{lrsitemize}
+    
+  
+    \vspace{.2cm}
+    \item Tracking-by-detection
+    \begin{lrsitemize}
+      \item Model pretrained on Caltech [1]
+      \item Extended Kalman filters
+      \item Robust matching via\\geometric cues \& closed-world\\assumptions [4]
+    \end{lrsitemize}
+
+  \end{lrsitemize}
+    \putfigurelbl{ped-caltech}{width=5cm}{(3.2cm,0.2cm)}{\scriptsize Caltech Pedestrian Dataset [1]}
+    \footlineextra{
+      \scriptsize
+      \begin{lrsitemize}
+       \item[] [1] Doll\'ar, \emph{et al.} \emph{Pedestrian Detection: An Evaluation of the State of the Art.} TPAMI 34(4), 2012
+       \item[] [2] Krizhevsky \emph{et al.} \emph{ImageNet Classification with Deep Conv. Neural Networks.} NIPS'12
+       \item[] [3] Liu, \emph{et al.} \emph{SSD: Single Shot MultiBox Detector.} ECCV'16
+       \item[] [4] Possegger, \emph{et al.} \emph{Occlusion Geodesics for Online Multi-Object Tracking.} CVPR'14
+       \item[] [5] Romero, \emph{et al.} \emph{FitNets: Hints for Thin Deep Nets.} ICLR'15
+      \end{lrsitemize}
+    }
+\end{frame}

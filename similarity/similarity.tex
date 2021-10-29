@@ -1,0 +1,273 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[left=25mm,right=25mm,top=25mm,bottom=25mm,headheight=14pt]{geometry}
+% \usepackage[table]{xcolor}   % Colored table cells: http://ctan.org/pkg/xcolor
+\PassOptionsToPackage{cmyk,table}{xcolor}
+% \usepackage{cvpr}
+\usepackage{times}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Include other packages here, before hyperref.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{mathtools}
+\usepackage{multirow}
+% % \usepackage{subfigure} % provides subtable
+% prevent caption warning: http://tex.stackexchange.com/questions/34579/is-there-really-something-wrong-with-using-the-caption-package-for-continuedflo
+% \usepackage[caption=false]{subfig} % moves sub captions too close towards text
+\usepackage{subfig}
+% 
+% 
+% % \usepackage{varwidth}
+% 
+\usepackage{rotating}
+\usepackage[percent]{overpic}
+\usepackage{contour}
+% \usepackage{float}
+% \restylefloat{table*}
+% \usepackage{showkeys}
+
+
+%TODO
+% fancy ``overlay``
+% \usepackage{fancyhdr}
+% \fancypagestyle{firststyle}
+% {
+%    \fancyhf[C]{This paper will appear in the proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, 2015}
+%    \fancyfoot{}
+% }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tikz
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTE: http://tex.stackexchange.com/questions/76314/everyshipout-errors-when-using-tikz-with-conference-style
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=newest} 
+% \pgfplotsset{math parser=false} 
+% 
+% \usetikzlibrary{plotmarks}
+% 
+% \newlength\figureheight 
+% \newlength\figurewidth 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Color definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% tracker ranking
+\definecolor{tcfirst}{RGB}{250,20,0}
+% \definecolor{tcsecond}{RGB}{0,40,255}
+\definecolor{tcsecond}{RGB}{0,130,250} %{230,0,250} %{0,170,255}
+% \definecolor{tcthird}{RGB}{40,160,10}
+\definecolor{tcthird}{RGB}{10,140,0}
+
+\definecolor{tabsep}{RGB}{180,180,180} % table separator, see http://tex.stackexchange.com/questions/40666/how-to-change-line-color-in-tabular
+
+%dark green {10,180,0}
+% orange {255,120,0}
+% Result visualizations
+\definecolor{cprop}{RGB}{250,0,0}
+% additional trackers for result plots
+\definecolor{cact}{RGB}{0,130,0} %\definecolor{cact}{RGB}{230,0,250} % fix! - matlab rendering
+\definecolor{ccmt}{RGB}{0,130,0}
+\definecolor{cct}{RGB}{0,130,0}
+\definecolor{cdft}{RGB}{0,130,0}
+\definecolor{cdsst}{RGB}{0,0,250} %\definecolor{cdsst}{RGB}{0,0,250}  % fix! - matlab rendering
+\definecolor{cfot}{RGB}{0,0,250}
+\definecolor{cht}{RGB}{0,0,250}
+\definecolor{ciivt}{RGB}{0,170,255}
+\definecolor{civt}{RGB}{0,170,255}
+\definecolor{ckcf}{RGB}{0,170,255} % fix! - matlab rendering
+\definecolor{clgt}{RGB}{255,120,0}%{0,100,255}
+\definecolor{cmil}{RGB}{255,120,0}
+\definecolor{cogt}{RGB}{40,40,40} %{230,0,250}
+\definecolor{cplt}{RGB}{40,40,40} %{230,0,250}
+\definecolor{cpt}{RGB}{40,40,40} %{230,0,250}
+\definecolor{cspot}{RGB}{230,0,250} %{40,40,40}
+\definecolor{cstruck}{RGB}{230,0,250} %{40,40,40}
+\definecolor{ctld}{RGB}{40,40,40} %{230,0,250}
+
+
+% Probs
+\definecolor{cobj}{RGB}{10,140,0} %\definecolor{cobj}{RGB}{0,0,250}
+\definecolor{csurr}{RGB}{250,0,0}
+\definecolor{cdist}{RGB}{250,0,0}
+\definecolor{cthresh}{RGB}{0,0,250} %\definecolor{cthresh}{RGB}{230,0,250}
+
+
+\newcommand{\ie}{\emph{i.e.} }
+% Symbols used in ranking pgfplots
+\newcommand{\symdats}{star}
+\newcommand{\symdat}{x}
+\newcommand{\symnodat}{+}
+\newcommand{\symact}{o}
+\newcommand{\symcmt}{x}
+\newcommand{\symct}{+}
+\newcommand{\symdft}{triangle}
+\newcommand{\symdsst}{triangle}
+\newcommand{\symfot}{+}
+\newcommand{\symht}{star}
+\newcommand{\symiivt}{o}
+\newcommand{\symivt}{triangle}
+\newcommand{\symkcf}{star}
+\newcommand{\symlgt}{triangle}
+\newcommand{\symmil}{o}
+\newcommand{\symogt}{triangle}
+\newcommand{\symplt}{asterisk}
+\newcommand{\sympt}{+}
+\newcommand{\symspot}{asterisk}
+\newcommand{\symstruck}{triangle}
+\newcommand{\symtld}{o}
+
+\newcommand{\sref}[1]{\protect\subref{#1}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Text commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\TODO}[1]{{\color{red}TODO: #1}}
+\newcommand{\todo}[1]{{\color{red}TODO: #1}}
+
+% Units
+\newcommand{\meters}{\ensuremath{\,\text{m}}}
+\newcommand{\kmh}{\ensuremath{\,\text{km/h}}}
+\newcommand{\mps}{\ensuremath{\,\text{m/s}}}
+\newcommand{\fps}{\ensuremath{\,\text{fps}}}
+
+
+
+% Hyphenation
+\hyphenation{off-line}
+\hyphenation{MATLAB}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Math
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\dotprod}[2]{\ensuremath{\left\langle#1,#2\right\rangle}}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\ensuremath{\mathbf{#1}}}
+\newcommand{\transpose}{\ensuremath{^\top}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+%opening
+\title{Plagiat}
+\author{VWA}
+
+\begin{document}
+
+\maketitle
+\section*{Copied}
+To distinguish object pixels $\vec{x}\in\mathcal{O}$ from surrounding background pixels, Possegger \emph{et al.}~\cite{possegger15} employ a color histogram based Bayes classifier on the input image $I$.
+Let $H^I_\Omega(b)$ denote the $b$-th bin of the non-normalized histogram $H$ computed over the region $\Omega\subset I$~\cite{possegger15}.
+Additionally, let $b_\vec{x}$ denote the bin $b$ assigned to the color components of $I(\vec{x})$~\cite{possegger15}.
+Given a rectangular object region $O$ (\ie initial bounding box annotation or current tracker hypothesis) and its surrounding region $S$, \cite{possegger15} applies Bayes rule to obtain the object likelihood at location $\vec{x}$ as %the conditional probability
+\begin{align}
+  P\!\left(\vec{x}\!\in\!\mathcal{O}|O,S,b_\vec{x}\right) \approx \frac{P\!\left( b_\vec{x}|\vec{x}\!\in\!O\right)  P\!\left(\vec{x}\!\in\!O\right)}{\sum\limits_{\mathclap{\Omega\in\{O,S\}}}{\:P\!\left(b_\vec{x}|\vec{x}\!\in\!\Omega\right) P\!\left(\vec{x}\!\in\!\Omega\right)}}\label{eq:bayes}.
+\end{align}
+In particular, they estimate the likelihood terms directly from color histograms, \ie $P\!\left( b_\vec{x}|\vec{x}\!\in\!O\right) \approx H^I_O(b_\vec{x})/|O|$ and $P\!\left( b_\vec{x}|\vec{x}\!\in\!S\right) \approx H^I_S(b_\vec{x})/|S|$, where $|\cdot|$ denotes the cardinality~\cite{possegger15}.
+% As our goal is to differentiate between object pixels $\vec{x}\in\mathcal{O}$, we can estimate above terms directly from color histograms, \ie $P\!\left( b_\vec{x}|\vec{x}\!\in\!\Omega_O\right) \approx H^I_O(b_\vec{x})/|O|$
+% Furthermore, the prior probability can be approximated from the size of the object and surrounding regions as $P\!\left(\vec{x}\!\in\!O\right)\approx|O|/(|O|+|S|)$.
+Furthermore, the prior probability can be approximated as $P\!\left(\vec{x}\!\in\!O\right)\approx|O|/(|O|+|S|)$.
+Then, Eq.~\eqref{eq:bayes} simplifies to
+\begin{gather}
+\begin{aligned}
+  P\!\left(\vec{x}\!\in\!\mathcal{O}|O,S,b_\vec{x}\right)\!=\!\begin{cases}
+                                                                            \frac{H^I_{O}(b_\vec{x})}{H^I_{O}(b_\vec{x}) + H^I_{S}(b_\vec{x})} & \!\!\text{if $I(\vec{x})\!\in\!I(O\!\cup\!S)$}\\
+                                                                            0.5 & \!\!\text{otherwise,}
+                                                                          \end{cases}\label{eq:om_surr}
+\end{aligned}\raisetag{\baselineskip}
+\end{gather}
+where unseen pixel values are assigned the maximum entropy prior of $0.5$~\cite{possegger15}.
+This generative model already allows to distinguish object and background pixels~\cite{possegger15}.
+
+However, one of the most common problems of color-based online trackers remains~\cite{possegger15}.
+Namely, that such algorithms may drift to nearby regions which exhibit a similar appearance compared to the object of interest~\cite{possegger15}.
+To overcome this limitation, they explicitly extend the object model to suppress such distracting regions~\cite{possegger15}.
+% Since computing the object likelihood scores from Eq.~\eqref{eq:om_surr} can be realized via an efficient lookup-table, these scores can be computed over a large search region at a very low computational cost.
+%we can afford computing these scores over a large search region.
+% In fact, since computing the object likelihood scores from Eq.~\eqref{eq:om_surr} can be realized via an efficient lookup-table, we can afford computing these scores over a large search region.
+% In fact, since computing the object likelihood scores from Eq.~\eqref{eq:om_surr} can be realized via an efficient lookup-table, we can afford computing these scores in a larger search region around the target.
+% As will be discussed in the following section, this allows us to identify potentially distracting regions in advance and handle them accordingly.
+
+
+\section*{Paraphrased}
+Possegger \emph{et al.}~\cite{possegger15} employ a na\"ive Bayes model to distinguish object pixels $\vec{x}\in\mathcal{O}$ from their surrounding background $\vec{x}\in\mathcal{S}$. 
+Given the non-normalized histogram $H^I_\Omega(b)$ computed over the region $\Omega\subset I$, $b_\vec{x}$ denotes the bin $b$ assigned to the RGB components of $I(\vec{x})$.
+Then, for an object region $O$ and its surrounding region $S$, Bayes rule can be applied to obtain the object likelihood as the conditional probability
+\begin{align}
+  P\!\left(\vec{x}\!\in\!\mathcal{O}|O,S,b_\vec{x}\right) \approx \frac{P\!\left( b_\vec{x}|\vec{x}\!\in\!O\right)  P\!\left(\vec{x}\!\in\!O\right)}{\sum\limits_{\mathclap{\Omega\in\{O,S\}}}{\:P\!\left(b_\vec{x}|\vec{x}\!\in\!\Omega\right) P\!\left(\vec{x}\!\in\!\Omega\right)}}\label{eq:bayes2}.
+\end{align}
+By leveraging color histograms, these likelihood terms can be estimated as $P\!\left( b_\vec{x}|\vec{x}\!\in\!O\right) \approx H^I_O(b_\vec{x})/|O|$ and $P\!\left( b_\vec{x}|\vec{x}\!\in\!S\right) \approx H^I_S(b_\vec{x})/|S|$, where $|\cdot|$ denotes the set's cardinality.
+Furthermore, the prior probability can be approximated from the size of the object and surrounding regions as $P\!\left(\vec{x}\!\in\!O\right)\approx|O|/(|O|+|S|)$.
+% Furthermore, the prior probability can be approximated as $P\!\left(\vec{x}\!\in\!O\right)\approx|O|/(|O|+|S|)$.
+Then, Eq.~\eqref{eq:bayes2} simplifies to the generative model
+\begin{gather}
+\begin{aligned}
+  P\!\left(\vec{x}\!\in\!\mathcal{O}|O,S,b_\vec{x}\right)\!=\!\begin{cases}
+                                                                            \frac{H^I_{O}(b_\vec{x})}{H^I_{O}(b_\vec{x}) + H^I_{S}(b_\vec{x})} & \!\!\text{if $I(\vec{x})\!\in\!I(O\!\cup\!S)$}\\
+                                                                            0.5 & \!\!\text{otherwise,}
+                                                                          \end{cases}\label{eq:om_surr2}
+\end{aligned}\raisetag{\baselineskip}
+\end{gather}
+where unseen pixel values are assigned the maximum entropy prior of $0.5$.
+
+This, however, fails to address one of the most common problems of color-based online trackers which is that such algorithms may drift to nearby regions with similar appearance compared to the tracked object.
+To overcome this limitation, they adjust the object model accordingly to suppress distracting regions.
+% Since computing the object likelihood scores from Eq.~\eqref{eq:om_surr2} can be realized via an efficient lookup-table, these scores can be computed over a large search region at a very low computational cost.
+%we can afford computing these scores over a large search region.
+% In fact, since computing the object likelihood scores from Eq.~\eqref{eq:om_surr} can be realized via an efficient lookup-table, we can afford computing these scores over a large search region.
+% In fact, since computing the object likelihood scores from Eq.~\eqref{eq:om_surr} can be realized via an efficient lookup-table, we can afford computing these scores in a larger search region around the target.
+% As will be discussed in the following section, this allows us to identify potentially distracting regions in advance and handle them accordingly.
+
+\section*{Translated}
+Naive Bayes-Klassifikatoren können verwendet werden, um Bildpunkte am Objekt $\vec{x}\in\mathcal{O}$ vom Hintergrund zu unterscheiden.
+Dazu berechnen wir zunächst das nicht-normalisierte Farbhistogramm $H^I_\Omega$ \"uber den Bildbereich $\Omega\subset I$.
+Weiters bezeichnen wir mit $b_\vec{x}$ den Histogrammbalken, der den RGB Farbkomponenten $I(\vec{x})$ zugeordnet ist.
+Anschließend kann anhand der initial annotierten Objektposition $O$ (\"ublicherweise als Rechteck gegeben) und dessen direkter Umgebung $U$ die bedingte Wahrscheinlichkeit, dass sich das Objekt an einer bestimmten Position $\vec{x}$ befindet, unter Anwendung des Bayes-Theorems als
+\begin{align}
+  P\!\left(\vec{x}\!\in\!\mathcal{O}|O,U,b_\vec{x}\right) \approx \frac{P\!\left( b_\vec{x}|\vec{x}\!\in\!O\right)  P\!\left(\vec{x}\!\in\!O\right)}{\sum\limits_{\mathclap{\Omega\in\{O,U\}}}{\:P\!\left(b_\vec{x}|\vec{x}\!\in\!\Omega\right) P\!\left(\vec{x}\!\in\!\Omega\right)}}\label{eq:bayes3}
+\end{align}
+bestimmt werden.
+Nun können wir die ben\"otigten Terme mit Hilfe von Farbhistogrammen einsetzen: $P\!\left( b_\vec{x}|\vec{x}\!\in\!O\right) \approx H^I_O(b_\vec{x})/|O|$ und $P\!\left( b_\vec{x}|\vec{x}\!\in\!U\right) \approx H^I_S(b_\vec{x})/|U|$, wobei $|\cdot|$ die M\"achtigkeit der jeweiligen Menge bezeichnet.
+Die A-priori-Wahrscheinlichkeit $P\!\left(\vec{x}\!\in\!O\right)\approx|O|/(|O|+|U|)$ kann ebenso aus der initialen Annotation abgeleitet werden.
+Damit k\"onnen wir Gleichung~\eqref{eq:bayes3} zu
+\begin{gather}
+\begin{aligned}
+  P\!\left(\vec{x}\!\in\!\mathcal{O}|O,U,b_\vec{x}\right)\!=\!\begin{cases}
+                                                                            \frac{H^I_{O}(b_\vec{x})}{H^I_{O}(b_\vec{x}) + H^I_{U}(b_\vec{x})} & \!\!\text{falls $I(\vec{x})\!\in\!I(O\!\cup\!U)$}\\
+                                                                            0.5 & \!\!\text{sonst,}
+                                                                          \end{cases}\label{eq:om_surr3}
+\end{aligned}\raisetag{\baselineskip}
+\end{gather}
+vereinfachen und erhalten ein generatives Modell zur Unterscheidung von Objekt- und Hintergrundpixel.
+
+Diese Formulierung ist nichtsdestotrotz noch immer anf\"allig gegen\"uber ''Drifting``, einem Hauptproblem von farbbasierten Trackingans\"atzen.
+Dabei werden visuell \"ahnliche Bildregionen mit dem tats\"achlich verfolgten Objekt verwechselt.
+Um dieses Problem zu beheben, muss das farbbasierte Objektmodell entsprechend erg\"anzt werden, um solche St\"oreinfl\"usse rechtzeitig erkennen und unterdr\"ucken zu k\"onnen.
+
+\section*{Not Plagiarized}
+Color is a powerful visual cue to distinguish object pixels from surrounding background pixels, \emph{e.g.}~\cite{possegger15, raja98a, wang16a}.
+Thus, we utilize the distractor-aware model proposed by Possegger \emph{et al.}~\cite{possegger15} to localize the object of interest throughout the video.
+In particular, this model employs a na\"ive Bayes classifier to compute the object likelihood scores.
+To this end, they leverage color histograms which allows to relax the posterior probability formulation and enables efficient computation via lookup tables.
+This real-time capable model handles the visual appearance and variations of the target.
+For further details on the derivation of this model, we refer the interested reader to~\cite{possegger15}.
+
+Our major contribution in this paper is to extend the visual appearance model in~\cite{possegger15} with a data-driven motion component.
+To this end, we leverage a recurrent neural network~(RNN) to predict the next steps of the object trajectory.
+While this idea is similar to previous works, such as~\cite{wang17a}, our motion model is able to handle all shortcomings of previous extensions...
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,10 @@
+Given the camera's focal length $f$ and its principal point 
+$\vec{p} = (p_x, p_y)^\top$, we can project the 3D point 
+$\vec{x}$ onto the image plane to obtain its pixel location
+\begin{equation}
+  \vec{u} =  \begin{bmatrix}
+                  f & 0 & p_x \\
+                  0 & f & p_y \\
+                  0 & 0 & 1
+                \end{bmatrix} \vec{x}.
+\end{equation}
