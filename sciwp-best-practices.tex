@@ -610,24 +610,24 @@ Check the examples within this section on how to correctly use \verb,~\ref{},.
   \item \textbf{Figures with caption:}
   \begin{figure}[H]
     \centering
-    \includegraphics[width=0.35\textwidth]{examples/tug_logo}
+    \includegraphics[width=0.5\textwidth]{slide-refs/theme-lrs/logo_lrs}
     \caption{Figures must have self-explanatory captions -- explain your reader what is shown; what do different colors mean; \emph{etc.} If it isn't your original work, explicitly state ``\goodstyle{Image taken from~\nohrefcite{smith14}}''.
     If you modified an existing figure, explicitly state ``\goodstyle{Image adapted from~\nohrefcite{smith14}}''.
-    Note that ``\badstyle{Illustration of the university logo~\nohrefcite{smith14}}'' is incorrect -- this citation is ambiguous and does not clearly state that the image was copied from somewhere else.}
+    Note that ``\badstyle{Illustration of the workgroup logo~\nohrefcite{smith14}}'' is not correct -- such a citation is ambiguous because it does not clearly state that the image was actually copied from somewhere else.}
     \label{fig-example1}
   \end{figure}
   \vspace{-0.3em}
   \begin{figure}[H]
     \centering
-    \subfloat[The ICG institute.]{\makebox[0.4\textwidth][c]{\includegraphics[width=0.3\textwidth]{examples/icg_logo}}}\hspace{0.5cm}
-    \subfloat[The LRS workgroup.]{\makebox[0.4\textwidth][c]{\includegraphics[width=0.3\textwidth]{examples/lrs_logo}}}
+    \subfloat[Full workgroup logo.]{\makebox[0.47\textwidth][c]{\includegraphics[width=0.3\textwidth]{slide-refs/theme-lrs/logo_lrs}}}\hspace{0.5cm}
+    \subfloat[Shortened workgroup logo.]{\makebox[0.47\textwidth][c]{\includegraphics[width=0.3\textwidth]{examples/lrs_logo}}}
     \caption{Two exemplary subfigures. Images taken from~\nohrefcite{lowe04}.}
     \label{fig-example2}
   \end{figure}
   
 %   \vspace{0.5cm}
   \item\textbf{Corresponding reference within the text:}\\
-  Our logos are shown in Figures~\ref{fig-example1} and~\ref{fig-example2}.
+  Our workgroup logos are shown in Figure~\ref{fig-example1} and~\ref{fig-example2}.
   \end{itemize}
   \vspace{0.5cm}
   \inlatex{examples/figure_basic.tex}
