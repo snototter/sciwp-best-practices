@@ -45,6 +45,7 @@
 % 
 \usepackage{multibib}
 % 
+
 % Version command
 \def\version#1{\gdef\@version{#1}}
 \def\@version{\@latex@warning@no@line{No \noexpand\version given}}
@@ -72,27 +73,60 @@
 
 %% Layout for the title page
 %
+\renewcommand{\and}{\\[5mm]}
 %TODO add xkcd/208
 \renewcommand{\maketitle}{%
   \pagestyle{empty}%
   \pagenumbering{roman}%
-  \begin{center}%
-    \begin{minipage}{\titlewidth}%
-      \vspace*{5cm}%
-      \centering%
-      {\LARGE\bfseries\@title}\\[1cm]%
-        {\normalsize A beginner's guide to avoid common mistakes and\\pitfalls when creating scientific works}\\[4cm]%
-        {\large\@author}%
-    \end{minipage}%
-  \end{center}%
-  \vfill%
-  \begin{center}
-    \begin{minipage}{\titlewidth}%
-      \centering%
-      {\footnotesize Version \@version\\Graz, \@date%
-      }%
-    \end{minipage}%
-  \end{center}%
+  \begin{tikzpicture}[overlay,remember picture,line width=2pt]
+    \node [font=\bfseries\LARGE,
+           align=center,
+           anchor=north,
+           text width=13cm]
+          at ([yshift=-50mm]current page.north)
+          {{\setlength{\baselineskip}{16pt}\@title}};
+% 
+    \node [font=\large,
+           align=center,
+           anchor=north,
+           text width=13cm]
+           at ([yshift=-80mm]current page.north)
+          {{A beginner's guide to avoid common mistakes and\\[2mm]pitfalls when creating scientific works}};
+% 
+    \node [font=\large,
+           align=center,
+           anchor=south,
+           text width=8cm]
+          at ([yshift=120mm]current page.south)
+          {{\@author}};
+% 
+    \node [font=\normalsize,
+           align=center,
+           anchor=south]
+          at ([yshift=40mm]current page.south)
+          {\footnotesize{Version \@version}};
+%           
+    \node [font=\normalsize,
+           align=center,
+           anchor=south]
+          at ([yshift=34mm]current page.south)
+          {\footnotesize{Graz, \@date}};
+% 
+    \node[inner sep=0pt,
+          anchor=south]
+         at ([xshift=-40mm, yshift=50mm]current page.south east)
+         {\includegraphics[angle=-30,width=5cm]{examples/science.png}};
+%
+    \node[font=\tiny,
+          anchor=north,
+          text=lgray,
+          align=center,
+          rotate=-30,
+          text width=5cm]
+         at ([xshift=-47mm, yshift=58mm]current page.south east)
+%          {\rotatebox{-30}{Image recreated from the \hyperlink{https://store.xkcd.com/products/try-science}{xkcd try-science shirt}, which is based on xkcd/208}};
+         {Image recreated from the xkcd \texttt{try science} shirt, based on \texttt{https://xkcd.com/208}};
+  \end{tikzpicture} %
   \newpage%
   \ewapagestyle%
 }
@@ -339,12 +373,6 @@
   \vspace*{6pt}%
 }
 
-% To bottom-align footnotes, see https://tex.stackexchange.com/a/4910
-\usepackage[bottom]{footmisc}
-
-% Provide hyperref-less links to avoid hyperref confusion...
-\newcommand{\nohrefcite}[1]{{\protect\NoHyper\cite{#1}\protect\endNoHyper}}
-\newcommand{\nohref}[1]{\begin{NoHyper}\ref{#1}\end{NoHyper}}
 
 \usepackage{bibentry}
 \nobibliography*
@@ -360,7 +388,6 @@
   urlcolor=blue,     % color of page of \url{...}
   breaklinks=true   % break links if exceeding a single line
   ]{hyperref}
-
 % \usepackage{hyperref}
 % https://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv
 % https://tex.stackexchange.com/questions/387937/bibentry-with-template-causes-error-lonely-item-perhaps-a-missing-list-enviro
@@ -368,3 +395,9 @@
 % https://en.wikibooks.org/wiki/LaTeX/Hyperlinks
 % \AtBeginDocument{\let\textlabel\label}
 %% End of file
+% To bottom-align footnotes, see https://tex.stackexchange.com/a/4910
+\usepackage[bottom]{footmisc}
+
+% Provide hyperref-less links to avoid hyperref confusion...
+\newcommand{\nohrefcite}[1]{{\protect\NoHyper\cite{#1}\protect\endNoHyper}}
+\newcommand{\nohref}[1]{\begin{NoHyper}\ref{#1}\end{NoHyper}}
