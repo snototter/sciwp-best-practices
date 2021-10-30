@@ -527,34 +527,29 @@ Done -- submit your PDF.
 \newpage
 \section{Figures and Tables}
 \label{sec-figures}
-
 \begin{itemize}
-
 \item Use figures and tables to \textbf{help the reader understand your work}. For example, they can provide an overview of your approach; a summary of your key findings; a comparison of different approaches/methodologies; \emph{etc.}
  
 \item Pay attention to \textbf{correctly cite the source} of an illustration or table! Even if you just copied parts of an illustration/table, you still need to state this explicitly.
-
-% \item Additionally be aware, that most published papers hold a copyright -- so by simply copying an illustration, you can easily violate copyright law (even if you cited the source correctly).
  
 \item Whenever you include illustrations or tables within your documents, you must \textbf{refer to them within the corresponding text}, \emph{e.g.} ``\goodstyle{Fig.~1 illustrates}'' or ``\goodstyle{results are shown in Table~2}''.
 
 \item With \LaTeX, you just need to \verb,\label{}, your figure or table and then refer to it using the \verb,\ref{}, command.
-Just remember to use the \emph{protected space} (\emph{i.e.} the tilde symbol, $\sim$) directly before \verb,\ref{}, to prevent unwanted line breaks.
+To prevent unwanted line breaks before the figure/table number, use the \emph{protected space} (\emph{i.e.} the tilde symbol, $\sim$) directly before \verb,\ref{},.
 Check the examples within this section on how to correctly use \verb,~\ref{},.
-
 \end{itemize}
 
 
 \subsection{Typesetting a Table}
 \noindent
 \begin{itemize}
- \item Table captions must be \textbf{self-explanatory}, \emph{i.e.} the readers should understand what you want to show them (or what the listed values/scores mean) by just looking at the table data and reading its caption.
+ \item Table \textbf{captions must be self-explanatory}, \emph{i.e.} the readers should understand what you want to show them (or what the listed values/scores mean) by just looking at the table data and reading its caption.
  
- \item Each table \textbf{must be referenced} at least once within your text, \emph{e.g.}~``see Table~\nohref{tab-example1}''; ``this is summarized in Table~\nohref{tab-example1}'', \emph{etc.}
+ \item If you add a table, it must be referenced within the manuscript text, \emph{e.g.}~``see Table~\nohref{tab-example1}''; ``this is summarized in Table~\nohref{tab-example1}'', \emph{etc.}
  
- \item A numbered table is a \emph{proper noun}, thus never write ``\badstyle{see table~\nohref{tab-example1}}'', only ``\goodstyle{see Table~\nohref{tab-example1}}'' is correct. Never ever use the (incorrect) abbreviation ``\badstyle{Tab.~\nohref{tab-example1}}''.
+ \item A numbered table is a \emph{proper noun}, thus write ``\goodstyle{see Table~\nohref{tab-example1}}'' instead of ``\badstyle{see table~\nohref{tab-example1}}''. Never ever use the (incorrect) abbreviation ``\badstyle{Tab.~\nohref{tab-example1}}''.
  
- \item Typically, table captions should be placed above the table data (unless the template defines other requirements).
+ \item Typically, table captions should be placed above the table data (unless the specific template defines other layout requirements).
  
  \item Example~\ref{ex-tab} illustrates how to correctly typeset a table.
 \end{itemize}
@@ -590,15 +585,15 @@ Check the examples within this section on how to correctly use \verb,~\ref{},.
 \noindent
 
 \begin{itemize}
- \item Figure captions must be \textbf{self-explanatory}, \emph{i.e.} the reader should understand the ``big picture'' by just looking at the figure and reading its caption.
+ \item Figure \textbf{captions must be self-explanatory}, \emph{i.e.} the reader should understand the ``big picture'' by just looking at the figure and reading its caption.
  
- \item Pay attention to image credits and avoid copyright infringement (see also Section~\ref{sec-plagiarism})! Explicitly state if you \textbf{copied} a figure (write: \emph{``\goodstyle{Image taken from [X]}''}) or \textbf{modified} a figure (\emph{``\goodstyle{Image adapted from [X]}''}) within its caption.
+ \item Pay attention to image credits and avoid copyright infringement (see also Section~\ref{sec-plagiarism})! \textbf{Explicitly state} if you \textbf{copied} a figure (write: \emph{``\goodstyle{Image taken from [X]}''}) or \textbf{modified} a figure (\emph{``\goodstyle{Image adapted from [X]}''}) within its caption.
  
- \item Each figure \textbf{must be referenced at least once within your text}, \emph{e.g.}~``see Fig.~1''; ``this is illustrated in Fig.~2'', \emph{etc.}
+ \item If you add a figure, it must be referenced within the manuscript text, \emph{e.g.}~``see Figure~1''; ``this is illustrated in Fig.~2'', \emph{etc.}
  
- \item A numbered figure is a \emph{proper noun}, thus never write ``\badstyle{see figure~\nohref{fig-example1}}'', only ``\goodstyle{see Figure~\nohref{fig-example1}}'' or ``\goodstyle{see Fig.~\nohref{fig-example1}}'' is correct.
+ \item A numbered figure is a \emph{proper noun}, thus write ``\goodstyle{see Figure~\nohref{fig-example1}}'' (or the abbrevated form ``\goodstyle{see Fig.~\nohref{fig-example1}}'') instead of ``\badstyle{see figure~\nohref{fig-example1}}''.
  
- \item Typically, figure captions should be placed below the illustration (unless the template defines other requirements).
+ \item Typically, figure captions should be placed below the illustration (unless the specific template defines other layout requirements).
  
  \item Example~\ref{ex-fig} illustrates how to correctly typeset a figure.
 \end{itemize}
