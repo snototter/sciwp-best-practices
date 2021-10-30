@@ -73,8 +73,7 @@
 
 %% Layout for the title page
 %
-\renewcommand{\and}{\\[5mm]}
-%TODO add xkcd/208
+\renewcommand{\and}{\\[5mm]and\\[5mm]}
 \renewcommand{\maketitle}{%
   \pagestyle{empty}%
   \pagenumbering{roman}%
@@ -112,20 +111,21 @@
           at ([yshift=34mm]current page.south)
           {\footnotesize{Graz, \@date}};
 % 
-    \node[inner sep=0pt,
-          anchor=south]
-         at ([xshift=-40mm, yshift=50mm]current page.south east)
-         {\includegraphics[angle=-30,width=5cm]{examples/science.png}};
+    \node[inner sep=2pt,
+          anchor=south,
+          rotate=-20]
+         at ([xshift=-50mm, yshift=50mm]current page.south east)
+         {\includegraphics[width=5cm]{examples/science.png}};
 %
-    \node[font=\tiny,
+    \node[font=\scriptsize,
           anchor=north,
           text=lgray,
           align=center,
-          rotate=-30,
+          rotate=-20,
           text width=5cm]
-         at ([xshift=-47mm, yshift=58mm]current page.south east)
+         at ([xshift=-50mm, yshift=50mm]current page.south east)
 %          {\rotatebox{-30}{Image recreated from the \hyperlink{https://store.xkcd.com/products/try-science}{xkcd try-science shirt}, which is based on xkcd/208}};
-         {Image recreated from the xkcd \texttt{try science} shirt, based on \texttt{https://xkcd.com/208}};
+         {Image recreated from the xkcd ``\texttt{try science}'' shirt, based on \texttt{https://xkcd.com/208}};
   \end{tikzpicture} %
   \newpage%
   \ewapagestyle%
