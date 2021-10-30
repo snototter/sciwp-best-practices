@@ -1,10 +1,9 @@
 \documentclass{beamer}
-% \documentclass[handout]{beamer} % collapses the animations to a single page per slide
 \usepackage{etex}
 \usepackage[utf8]{inputenc}
 
-\title{An Intent-Based Automated Traffic Light\\for Pedestrians}
-\author[Horst]{H. Possegger}
+\title{Exemplary Presentation}
+\author{Author}
 \date{29 Nov 2018}
 
 %% To allow theme in local sub-folder:
@@ -21,13 +20,9 @@
 \pgfplotsset{every tick label/.append style={font=\scriptsize}}
 \pgfplotsset{every axis label/.append style={font=\scriptsize}}
 \usepgfplotslibrary{colorbrewer}
-% \pgfplotsset{cycle list/Set1-3}
-% \pgfplotsset{cycle list/Set1-5}
 \pgfplotsset{cycle list/Set1-3}
 
 \usepgfplotslibrary{statistics}
-
-% \usetikzlibrary{shadings}
 
 \DeclareRobustCommand{\trajpoint}[1]{\tikz{\draw[fill=#1,line width=0.5pt] circle(0.5ex);}}
 \definecolor{lpwd}{rgb}{0.0, 1.0, 1.0}
@@ -38,11 +33,6 @@
 \usepackage{overpic}
 \usepackage{nicefrac}
 \usepackage{mathtools}
-
-% Draw figure anywhere above the text:
-% \usepackage{textpos}
-% \setlength{\TPHorizModule}{1cm} % horizontal unit
-% \setlength{\TPVertModule}{1cm} % vertical unit
 
 % Calculate with lengths (-fboxrule....; to get the framed white images right)
 \usepackage{calc}
@@ -68,8 +58,6 @@
 % Resize image text overlay: https://tex.stackexchange.com/questions/57673/how-to-get-an-even-smaller-font
 \newcommand{\supertiny}{\fontsize{5}{5}\selectfont}
 
-% \usepackage[backend=bibtex]{biblatex}
-
 % \usepackage{media9}
 \usepackage{multimedia}
 \usepackage{hyperref}
@@ -82,7 +70,7 @@
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-% Title page
+% Title page (needed, because I'm reusing my phd (now lrs) presentation style)
 \begin{frame}
 \titlepage
 \end{frame}

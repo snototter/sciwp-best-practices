@@ -5,7 +5,8 @@
     \item Accuracy/runtime trade-off:
     \begin{lrsitemize}
       \item Single Shot MultiBox detector [3]
-      \item Backbone: compressed AlexNet [2,5]
+      \item Compressed AlexNet backbone [2,5]
+      \item Pretrained on Caltech [1]
       \item Optimized implementation\\with \textbf{AVX2 instructions}
     \end{lrsitemize}
     
@@ -13,15 +14,14 @@
     \vspace{.2cm}
     \item Tracking-by-detection
     \begin{lrsitemize}
-      \item Model pretrained on Caltech [1]
-      \item Extended Kalman filters
+      \item Unscented Kalman filters
       \item Robust matching via\\geometric cues \& closed-world\\assumptions [4]
     \end{lrsitemize}
 
   \end{lrsitemize}
     \putfigurelbl{ped-caltech}{width=5cm}{(3.2cm,0.2cm)}{\scriptsize Caltech Pedestrian Dataset [1]}
     \footlineextra{
-      \scriptsize
+      \tiny
       \begin{lrsitemize}
        \item[] [1] Doll\'ar, \emph{et al.} \emph{Pedestrian Detection: An Evaluation of the State of the Art.} TPAMI 34(4), 2012
        \item[] [2] Krizhevsky \emph{et al.} \emph{ImageNet Classification with Deep Conv. Neural Networks.} NIPS'12
