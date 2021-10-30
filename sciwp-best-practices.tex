@@ -512,7 +512,7 @@ Assuming you use \texttt{pdflatex} (as your \LaTeX~compiler) and \texttt{bibtex}
 This first run yields a warning like ``\emph{There were undefined references}'' and your PDF will contain lots of ``[?]''.
 
 \item \texttt{bibtex mypaper}\\[.5em]
-BibTeX collects all bibliography entries you referred to in your document. Now all references are known -- so you need to re-compile your PDF.
+BibTeX collects all bibliography entries you referred to in your document. From now on, all references should be known (unless there were some typos) -- so you need to re-compile your PDF.
 
 \item \texttt{pdflatex mypaper.tex}\\[.5em]
 This run yields a warning like ``\emph{References may have changed, rerun}'' indicating that the page numbers of some citations may have changed (due to replacing the previous ``[?]'' by the correct reference).
@@ -632,32 +632,26 @@ Check the examples within this section on how to correctly use \verb,~\ref{},.
 \newpage
 \section{Mathematical Writing}
 \label{sec-mathematics}
-
-For correct mathematical writing, you only need to follow the following simple guidelines.
+Integrating mathematics into your work can be a hurdle at first.
+The following recommendations help you achieve correct mathematical writing.
 These are based on commonly observed mistakes and also incorporate the basic rules coined by Mermin\footnote{Nathaniel David Mermin. What's wrong with these equations? \emph{Physics Today, 42(10):9--11}, 1989. This short article is also available online from the \emph{IEEE PAMI Technical Committee} at \url{http://www.pamitc.org/documents/mermin.pdf}}.
-For more details and tipps, we recommend consulting the text books on mathematical writing listed in Section~\ref{sec-further-reading}.
-% For mathematical writing several simple rules have to be followed, where the
-% most important are given below. 
-% For more details we would like to refer to \citefurther{book:MLA09}, \citefurther{book:CMS17}, and \citefurther{book:Vivaldi14},.
+For more comprehensive discussions of this important topic, we recommend the text books on mathematical writing listed in Section~\ref{sec-further-reading}.
 
 \begin{itemize}
-
 \item Integrating mathematics into your text can be done via \textbf{inline} formulations or by \textbf{numbered equations}.
 
-\item  Inline formulations should be used for \textbf{short definitions or parameter settings}, such as ``we set $x = 3$''.  More \textbf{complex expressions} (or equations you need to refer to throughout your text) should be placed in a \textbf{separate equation}.
+\item  Inline formulations should be used for \textbf{short definitions or parameter settings}, such as ``\goodstyle{we set $x = 3$}'' or ``\goodstyle{$\vec{v} = (v_x, v_y, v_z)^\top$}.``  More \textbf{complex expressions} or equations you need to refer to later on should be placed in a \textbf{separate numbered equation}.
   
-\item \textbf{Math is Prose} -- all mathematical formulations are part of the text. Ensure that they are integrated into the reading flow, \emph{i.e.} by including them in a sentence with \textbf{proper punctuation}.
-%(TOO MUCH INFORMATION FOR STUDENTS) Nevertheless, \LaTeX~treats equations as floating objects. Thus, to avoid unusual positions either do not use empty lines or use '\textbf{\%}' to glue the text to the equation. Otherwise, you should use the \lstinline[language={[LaTeX]TeX},basicstyle=\bfseries]{\noindent} command, to avoid that the following text is (incorrectly) indented.
+\item \textbf{Math is Prose} -- all mathematical formulations are part of the text. Ensure that they are properly integrated into the reading flow, \emph{i.e.} include them in a sentence and pay attention to \textbf{proper punctuation}.
+%(TOO MUCH INFORMATION FOR BEGINNERS) Nevertheless, \LaTeX~treats equations as floating objects. Thus, to avoid unusual positions either do not use empty lines or use '\textbf{\%}' to glue the text to the equation. Otherwise, you should use the \lstinline[language={[LaTeX]TeX},basicstyle=\bfseries]{\noindent} command, to avoid that the following text is (incorrectly) indented.
 
-
+\item Ensure that \textbf{all variables and mathematical expressions are properly explained}. Don't let your reader ``guess'' what you wanted to express. Never use a variable without explicitly defining it beforehand.
   
-\item Ensure that \textbf{all variables and mathematical expressions are properly explained}. Don't let your reader ``guess'', what you wanted to express. Never use a variable without explicitly defining it beforehand.
-  
-\item When referencing an equation, put its number into parentheses, \emph{e.g.} ``\goodstyle{see Equation~(1)}'' or ``\goodstyle{see Eq.~(1)}''.  \LaTeX~takes care of the parentheses if you use the \verb,\eqref{}, command.  
+\item When referencing an equation, put its number into parentheses, \emph{e.g.} ``\goodstyle{see Equation~(1)}''. Note that \LaTeX~takes care of this if you use the \verb,\eqref{}, command.  
 
-\item A numbered equation is a \emph{proper noun}, thus ``\badstyle{in equation~(1)}'' is wrong and must be replaced by ``\goodstyle{in Equation~(1)}''.
+\item A numbered equation is a \emph{proper noun}, thus write ``\goodstyle{in Equation~(1)}'' or the abbreviated form ``\goodstyle{see Eq.~(1)}'' instead of ``\badstyle{in equation~(1)}''.
 
-\item Consider the following Example~\ref{ex-math-inline}, which adheres to all of these simple rules:
+\item Consider the following Example~\ref{ex-math-inline} which adheres to all of these simple rules:
 
 \end{itemize}
 % 
@@ -669,30 +663,19 @@ For more details and tipps, we recommend consulting the text books on mathematic
   \inlatex{examples/math_text0.tex}
 \end{texexample}
 
-% One of the major benefits of \LaTeX~is its simple means to typeset mathematics.
-% You can write inline equations, such as $E = m c^2$, or place them in a separate environment, just like
-% \begin{equation}
-%  i^\star = \underset{i}{\arg\min} \sum_{j=i}^{N} \langle\mathbf{x}_i, \mathbf{x}_j \rangle. \label{eq1}
-% \end{equation}
-% Equations can also be labeled to refer to it via \verb,\eqref{},, see Equation~\eqref{eq1}.
-% Use the \texttt{align} environment to typeset multi-line equations like this
-% \begin{align}
-%   \int_0^\infty e^{-\alpha x^2} \mathrm{d}x   =   \frac12\sqrt{\int_{-\infty}^\infty e^{-\alpha x^2}} \mathrm{d}x\int_{-\infty}^\infty e^{-\alpha y^2}\mathrm{d}y\\ 
-%                                               = \frac12\sqrt{\frac{\pi}{\alpha}}.
-% \end{align}
-
-
-
 
 \subsection{Exemplary Punctuation}
 \label{sec-math:punctuation}
+The following Examples~\ref{ex-math-punctuation-good} and~\ref{ex-math-punctuation-bad} demonstrate correct and wrong punctuation.
 \begin{goodexample}[Math -- Correct Punctuation]
+  \label{ex-math-punctuation-good}
   \input{examples/math_text1.tex}
   \inlatex{examples/math_text1.tex}
 \end{goodexample}
 
 % \pagebreak
 \begin{badexample}[Math -- Wrong Punctuation]
+  \label{ex-math-punctuation-bad}
   This leads to the following formula:
     \begin{equation}
     E = \frac{1}{Q} \sum_{i=1}^{Q}{|v_i - v_r|^2}
@@ -716,14 +699,13 @@ For more details and tipps, we recommend consulting the text books on mathematic
 
 % \vspace{0.5cm}
 \item There are many ways to typeset \textbf{matrices}. A common clearly laid out notation is:
-% \vspace{-1em}
 \begin{texexample}[Math -- Matrices]
   \input{examples/math_projection.tex}
   
   \inlatex{examples/math_projection.tex}
 \end{texexample}
 
-\item \textbf{Multi-line equations} can be used to expand or simplify terms, state optimization constraints, \emph{etc.}
+\item \textbf{Multi-line equations} can be used to expand or simplify terms, to state optimization constraints, \emph{etc.}
 Use them to improve the reading flow of more complex equations:
 \vspace{-1em}
 \begin{texexample}[Math -- Multiline Equations]
@@ -1051,9 +1033,9 @@ the reading flow (and prevent your reader from falling asleep).
 \label{sec-spec:tex}
 \begin{itemize}
  \item To typeset \textbf{umlauts \& diacritics}, we recommend using \LaTeX~special characters as in the following example.
- Alternatively (although not recommended for this seminar), you can include various packages to directly typeset these characters in your editor -- for this, check the documentation of \LaTeX~packages \texttt{inputenc} (with option \texttt{utf8}), \texttt{fontenc} (with option \texttt{T1}) and \texttt{babel} (which takes care of correct hyphenation of words).
+ Alternatively, you can include various packages to directly typeset these characters in your editor -- for this, check the documentation of \LaTeX~packages \texttt{inputenc} (with option \texttt{utf8}), \texttt{fontenc} (with option \texttt{T1}) and \texttt{babel} (which takes care of correct hyphenation of words).
  \vspace{-1em}
- \begin{texexample}[\LaTeX -- Umlauts \& Diacritics]
+ \begin{texexample}[\LaTeX~-- Umlauts \& Diacritics]
   \input{examples/umlauts.tex}
   
   \inlatex{examples/umlauts.tex}
@@ -1062,18 +1044,16 @@ the reading flow (and prevent your reader from falling asleep).
  \vspace{0.5cm}
  \item There are several \textbf{special characters} which you need to escape to successfully compile your PDF file:
  \vspace{-1em}
- \begin{texexample}[\LaTeX -- Special Characters]
+ \begin{texexample}[\LaTeX~-- Special Characters]
    \input{examples/specialchars.tex}
   
    \inlatex{examples/specialchars.tex}
  \end{texexample}
  
-%  \vspace{0.5cm}
-% \pagebreak 
  \item Note the differences between \textbf{hyphen} (German: Bindestrich) and \textbf{dash} (German: Gedankenstrich):
  % Sorry Peter---die korrekte Schreibweise schaut bescheiden aus---und wird meistens falsch gedruckt (zu duenn).
  \vspace{-1em}
- \begin{texexample}[\LaTeX -- Hyphen vs. Dash]
+ \begin{texexample}[\LaTeX~-- Hyphen vs. Dash]
    \begin{NoHyper}
      \input{examples/hyphen.tex}
   
@@ -1085,14 +1065,14 @@ the reading flow (and prevent your reader from falling asleep).
 
  
  
- \begin{goodexample}[\LaTeX -- Correct Usage of Protected Spaces]
+ \begin{goodexample}[\LaTeX~-- Correct Usage of Protected Spaces]
    \begin{NoHyper}
      \input{examples/protected_spaces.tex}
    
      \inlatex{examples/protected_spaces.tex}
     \end{NoHyper}
  \end{goodexample}
- \begin{badexample}[\LaTeX -- Incorrect Usage of Protected Spaces]
+ \begin{badexample}[\LaTeX~-- Incorrect Usage of Protected Spaces]
    \begin{NoHyper}
 %    \input{examples/protected_spaces_incorrect.tex}
     Don't mix standard and protected spaces, as in\badstyle{\textvisiblespace\textvisiblespace}\cite{smith14}.
