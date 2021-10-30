@@ -69,10 +69,10 @@
   \renewcommand{\headrulewidth}{0pt}% Remove the header line
   \cfoot{\textcolor{lgray}{\thepage}}%
 }
-% 
-%
+
 %% Layout for the title page
 %
+%TODO add xkcd/208
 \renewcommand{\maketitle}{%
   \pagestyle{empty}%
   \pagenumbering{roman}%
@@ -83,7 +83,6 @@
       {\LARGE\bfseries\@title}\\[1cm]%
         {\normalsize A beginner's guide to avoid common mistakes and\\pitfalls when creating scientific works}\\[4cm]%
         {\large\@author}%
-%TODO remove?         {\footnotesize This Handout complements the Seminar\\[0.5em]\emph{Writing Scientific Papers\\[0.2em](Verfassen wissenschaftlicher Arbeiten)\\[0.2em]INH.01121UF}}}%
     \end{minipage}%
   \end{center}%
   \vfill%
@@ -138,7 +137,7 @@
   \addcontentsline{ewa}{ewaexample}{\protect\numberline{\theewaexample}#1}\par}
 
 % Define counter and list of exemplary bibtex entries
-\newcommand{\listewabibentry}{List of Bibliography Entries (Mandatory Fields)}
+\newcommand{\listewabibentry}{List of Required Bibliography Fields}
 \newlistof{ewabibentry}{ewb}{\listewabibentry}
 \newcommand{\ewabibentry}[1]{%
   \refstepcounter{ewabibentry}
