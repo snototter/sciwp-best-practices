@@ -911,8 +911,7 @@ Science community) is to use the \emph{\textbf{author's ``we''}} (\emph{i.e.}
 \emph{pluralis auctoris}, \emph{pluralis modestiae}).
   This means that you should always use the pronoun ``we'' when referring to yourself, your work or your findings.
   Thus, in a scientific text, always write ``\goodstyle{\textbf{we}} propose/evaluate/\emph{etc.}'' instead of ``\badstyle{\textbf{I}} propose/evaluate/\emph{etc.}'' -- even if you did all the work yourself.
-  The \emph{author's ``we''} is often used to refer to ``the reader and the author'', in a sense that both follow the paper's chain of reasoning.
-%   Additionally, ``we'' in papers expresses modesty of the author.
+
   
 \item Avoid plagiarism when summarizing related work or writing a survey paper 
 -- \textbf{do not copy another author's ``\emph{we [...]}''} phrases.
@@ -926,13 +925,13 @@ Science community) is to use the \emph{\textbf{author's ``we''}} (\emph{i.e.}
   distance} or \goodstyle{the Gaussian distribution}.
 
   \item \textbf{Numbered elements} (figures, tables, equations, sections and chapters) are \emph{proper nouns}.
-  Thus, capitalize these words when referring to a numbered element of your paper, \emph{e.g.} \goodstyle{see Fig.~1}, \goodstyle{summarized in Table~2}, \goodstyle{as defined in Eq.~(3)}, \goodstyle{refer to Sec.~5 for details}, \emph{etc.}
+  Thus, capitalize these words when referring to a numbered element of your paper, \emph{e.g.} \goodstyle{see Fig.~1}; \goodstyle{summarized in Table~2}; \goodstyle{as defined in Eq.~(3)}; \goodstyle{refer to Sec.~5 for details}; \emph{etc.}
   However, do not capitalize these words without numbering, \emph{e.g.} ``\goodstyle{This section} presents our findings~[...]'' or ``In \goodstyle{the following chapter}, we will see~[...]''.
   
 % \item For the \textbf{capitalization of headings} there are no fixed rules. In fact, different style guides such as the \emph{Chicago Manual of Style (CMS)} \citefurther{book:CMS17}
 % or the \emph{MLA Handbook for Writers of Research Papers} \citefurther{book:MLA09} and templates of journals or conferences define different rules. As a general rule of thumb the first word, the last word, and all important words should be capitalized. According to the CMS, capitalize	
   \item There are no fixed rules for \textbf{capitalization of headings}. In fact, different style guides and paper templates define different rules.
-  As a general rule of thumb the first word, the last word, and all important words should be capitalized. According to the \emph{Chicago Manual of Style}\footnote{\bibentry{book:CMS17}. This is a widely used style guide for American English.}, you should capitalize
+  As a general rule of thumb the first word, the last word, and all important words should be capitalized.\\According to the \emph{Chicago Manual of Style}\footnote{\bibentry{book:CMS17}. This is a widely used style guide for American English.}, you should capitalize
   
 \vspace{-0.25cm}
 \begin{itemize}
@@ -952,7 +951,7 @@ but do not capitalize
 \item the “to” in infinitives.
 \end{itemize}
 
-An exception is the \emph{sentence case} where we use a full sentence as heading. To increase the readability here, we use standard capitalization rules: ``\goodstyle{How to give a good presentation?}'' or ``\goodstyle{An image is worth a thousand words.}''
+An exception is the \emph{sentence case} where we use a full sentence as heading. To increase the readability in such cases, we use standard capitalization rules, \emph{e.g.} ``\goodstyle{How to give a good presentation?}'' or ``\goodstyle{An image is worth a thousand words.}''
 \end{itemize}
 
 \subsubsection*{Abbreviations:}
@@ -962,10 +961,12 @@ their first use:
   \vspace{-1.5em}
   \begin{goodexample}[Correct Abbreviations]
     He worked at the \goodstyle{National Aeronautics and Space Administration~(NASA)}, where he implemented an approach to identify suitable landing spots for the Mars rover based on \goodstyle{Convolutional Neural Networks~(CNN)}.
-    
-%TODO well-known abbrevations (GPS, CNN, ... - write abbrev first; explanation in parentheses), according to lebrun
+
     In \LaTeX, use a protected space to prevent incorrect line breaks between a definition and its abbreviation: \\\texttt{National{\textvisiblespace}Aeronautics{\textvisiblespace}and{\textvisiblespace}Space{\textvisiblespace}Administration$\sim$(NASA)}.
   \end{goodexample}
+  
+% I'm following Lebrun's advice:
+  \item Well-known abbreviations should also be defined upon their first use. However, here you can first state the abbreviation and put the definition within parentheses, \emph{e.g.} \goodstyle{GPS~(Global Positioning System)}
 %   \vspace{-2em}
 %   \begin{badexample}[Incorrect Abbreviations]
 %     Using the abbreviation before stating the full name: \badstyle{NASA~(National Aeronautics and Space Administration)}.
@@ -982,19 +983,15 @@ their first use:
 \subsubsection*{Reading Flow and Wording:}
 \begin{itemize}
   
-  \item Use scientific diction/professional wording. For example, compare ``\goodstyle{a large dataset/a large amount of data}'' \emph{versus} ``\badstyle{a big set of data}''.
+  \item Use scientific diction/professional wording. For example, compare ``\goodstyle{a large data set/a large amount of data}'' \emph{versus} ``\badstyle{a big set of data}''.
 
   \item Similarly, never use \textbf{``one''} (as in ``\badstyle{one can see that~[...]}'' or ``\badstyle{one can compute $\omega_i$}''). Replace it by the \emph{author's ``we''}: ``\goodstyle{we can see that~[...]}'' or ``\goodstyle{we compute $\omega_i$}''.
-  
+
   \item Note that standard English words may have (slightly) different meanings in different scientific communities.
   For example, computer scientists distinguish between \goodstyle{images} (German: Bild, Abbildung) and \badstyle{pictures} (German: Gem\"alde, Darstellung).
-  
-%   \item Provided templates have to be used
-% Das muss man den Studenten echt aufschreiben? WTF!
 
 \item To improve the reading flow, avoid \textbf{widows} and \textbf{orphans} that are separated
 from the rest of the text.
-
     \begin{itemize}
     \item Widow: A paragraph-ending line at the beginning of the following page or column.
     \item Orphan: A paragraph-opening line at the bottom of a page or column.
@@ -1012,18 +1009,19 @@ from the rest of the text.
  
 \item In contrast to many German texts, write \textbf{short sentences} in 
 English documents. For scientific papers, short sentences significantly improve 
-the reading flow (and prevent your reader from falling asleep).
+the reading flow (and thus prevent your reader from falling asleep).
  
 \item Paragraphs should consist of approximately 3--5 sentences. Shorter paragraphs impede the reading flow and prevent the reader from absorbing the information you want to provide.
  
 \item \textbf{Transition words} -- such as \emph{therefore}, \emph{thus}, \emph{hence}, \emph{however}, \emph{nevertheless}, and others -- should always be separated from the remaining sentence by a comma: ``\goodstyle{the truth, however, is that writing takes a lot of practice}''.
  
-\item Always separate the abbreviations ``\textbf{\emph{i.e.}}'' (Latin: \emph{id est}, meaning ``that is'') or ``\textbf{\emph{e.g.}}'' (Latin: \emph{exempl\={\i} gr\={a}ti\={a}}, meaning ``for example'') from the text by a leading comma. For example, ``there are many NP-hard \goodstyle{problems, \emph{e.g.}} the subset sum or the traveling salesman''. In \emph{American English} texts, you should also place an additional comma after the abbreviation, such as ``we investigate learning \goodstyle{approaches, \emph{e.g.},} boosting and support vector machines''.
+\item Always separate the abbreviations ``\textbf{\emph{i.e.}}'' (Latin: \emph{id est}, meaning ``that is'') or ``\textbf{\emph{e.g.}}'' (Latin: \emph{exempl\={\i} gr\={a}ti\={a}}, meaning ``for example'') from the text by a leading comma. For example, ``there are many NP-hard \goodstyle{problems, \emph{e.g.}} the subset sum or the traveling salesman''. In \emph{American English} texts, you should also place an additional comma after these abbreviations, such as ``we investigate several learning \goodstyle{approaches, \emph{e.g.},} boosting and support vector machines''.
  
 
 
  \item \textbf{Proofread your document}! Use both a \emph{spell checker} and a \emph{grammar checker} to find typographical and grammatical errors.
- For example, you can use the spell/grammar checking functionality built into office applications (such as Microsoft Word or LibreOffice), use specialized software packages for spell checking (\emph{e.g.} \texttt{aspell} or \texttt{hunspell} on Unix), or use online grammar checking services (such as \url{https://grammarly.com} or \url{https://www.gingersoftware.com}).
+ For example, you can use the spell/grammar checking functionality built into office applications (such as Microsoft Word or LibreOffice), use specialized software packages for spell checking (\emph{e.g.} \texttt{aspell} or \texttt{hunspell} on Unix), or use online grammar checking services.
+%  (such as \url{https://grammarly.com} or \url{https://www.gingersoftware.com}).
 % 
 \end{itemize}
 
@@ -1073,8 +1071,7 @@ the reading flow (and prevent your reader from falling asleep).
  \end{goodexample}
  \begin{badexample}[\LaTeX~-- Incorrect Usage of Protected Spaces]
    \begin{NoHyper}
-%    \input{examples/protected_spaces_incorrect.tex}
-    Don't mix standard and protected spaces, as in\badstyle{\textvisiblespace\textvisiblespace}\cite{smith14}.
+    Don't mix standard and protected spaces, like here\badstyle{\textvisiblespace\textvisiblespace}\cite{smith14}.
 
     {Protected~spaces~prevent~breaking~this~rather~long~line.~It~looks~ugly,~but~that's~the~point.}
    
