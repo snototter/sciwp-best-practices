@@ -259,7 +259,7 @@ The following subsections present \goodstyle{best practice examples} and \badsty
 \label{sec-bibtex}
 
 In this section, we first summarize general rules for bibliographies (see Section~\ref{sec-bibtex-general}).
-Then, we list exemplary bibliography entries showing the \textbf{mandatory fields for different publication types} (such as papers, books, \emph{etc.}), along with their corresponding BibTeX entry (see Section~\ref{sec-bibtex-entries}) and provide suggestions that help you use BibTeX more efficiently (see Section~\ref{sec-bibtex-extras}).
+Then, we list exemplary bibliography entries showing the \textbf{required fields for different publication types} (such as papers, books, \emph{etc.}), along with their corresponding BibTeX entry (see Section~\ref{sec-bibtex-entries}) and provide suggestions that help you use BibTeX more efficiently (see Section~\ref{sec-bibtex-extras}).
 Additionally, we demonstrate how to \textbf{correctly compile a PDF with \LaTeX+BibTeX} (see Section~\ref{sec-bibtex-compile}).
 
 
@@ -267,15 +267,15 @@ Additionally, we demonstrate how to \textbf{correctly compile a PDF with \LaTeX+
 \label{sec-bibtex-general}
 
 \begin{itemize}
-\item \textbf{Never copy a bibliography entry} without double-checking it yourself! Many published papers (even from high impact conferences and journals) contain sloppy or incorrect references. Similarly, references listed on Google Scholar, ResearchGate, \emph{etc.} are often incomplete. Thus, check every reference for:
+\item \textbf{Never copy a bibliography entry} without double-checking it yourself (neither from the internet, nor from another paper's bibliography)! Unfortunately, many published papers (even from top-tier conferences and high impact journals) contain sloppy and/or incorrect references. Similarly, references listed on Google Scholar, ResearchGate, \emph{etc.} are quite often incomplete. Thus, check every reference you want to add to your paper for:
 % \item Thus, it is necessary to check every reference for
 %
 \vspace{-0.25cm}
 %
 \begin{itemize}
 \item \textbf{Correctness} -- double-check your references, \emph{e.g.} by looking up the publication in the official conference proceedings or journal.
-\item \textbf{Consistency} -- use the same style, the same abbreviations, the same name/style to refer to conferences or journals.
-\item \textbf{Completeness} -- each reference must contain the following fields (a detailed list for each publication type can be found in Section~\ref{sec-bibtex-entries}):
+\item \textbf{Consistency} -- use the same abbreviations, the same name/style to refer to conferences or journals.
+\item \textbf{Completeness} -- each reference must contain at least the following fields (more details for each publication type are provided in Section~\ref{sec-bibtex-entries}):
 %
 % \vspace{-0.25cm}
 %
@@ -289,29 +289,9 @@ Additionally, we demonstrate how to \textbf{correctly compile a PDF with \LaTeX+
 \end{itemize}
 \end{itemize}
 
-% \item Correctness: \textbf{Never copy references without double-checking} -- not even from Google Scholar, ResearchGate, etc. Always check references yourself!
-
-% \item Consistency: Use the same style, the same abbreviations, the same detail
-% level, the same name/style for conferences and journals.
-
-
-% \item Completeness: All BibTeX-entries must contain the following fields:
-% %
-% \vspace{-0.25cm}
-% %
-% \begin{itemize}
-% \item Authors
-% \item Title
-% \item Source (book, journal, conference, etc.)
-% \item Issue, number (for journals and technical reports)
-% \item Page numbers (for journals)
-% \item Year
-% \end{itemize}
-
 \item Each reference in your bibliography \textbf{must be cited at least once} within the text.
-% In contrast to other publications, in scientific works, each reference in the bibliography \textbf{must be cited at least once} in the text.
 
-\item Avoid lexicographic entries (this usually happens if you copy the name of a conference/journal from some website):
+\item Avoid lexicographic entries (this usually happens if you copy the name of a conference/journal from some website). For example, compare the following:
 %
 \vspace{-0.25cm}
 %
@@ -330,7 +310,7 @@ Additionally, we demonstrate how to \textbf{correctly compile a PDF with \LaTeX+
 \end{itemize}
 
 \item For well-known conferences, no ordinal numbers are needed. This information can be
--- if of interest -- extrapolated from the year:
+-- if anyone is actually interested in -- looked up easily online:
 %
 \vspace{-0.25cm}
 %
@@ -339,31 +319,31 @@ Additionally, we demonstrate how to \textbf{correctly compile a PDF with \LaTeX+
 \item Authors. Title. In \emph{Proc. of the \badstyle{23\textsuperscript{rd} International Conference on Frobnication}}, 2019.
 \end{itemize}
 
-\item Conference proceedings are usually digital – there is no need to include volume or pages (it is also surprisingly difficult to extract this information correctly)!
+\item Conference proceedings are usually digital. Thus, there is no need to include volume or pages (it is also surprisingly difficult to extract this information correctly)!
 
 \end{itemize}
 
 
-\vfill
-\subsection{Mandatory Bibliography Fields}
+% \vfill
+\subsection{Required Bibliography Fields}
 \label{sec-bibtex-entries}
 
-As mentioned above, depending on the publication type you want to cite (\emph{e.g.} conference papers, books, \emph{etc.}), there are different \textbf{mandatory fields} you must provide in your bibliography. Below, you'll find examples for (almost) all publication types you'll need.
-For each type, we list the mandatory fields you have to provide in your bibliography (such as \texttt{title}, \texttt{author}, \emph{etc.}) within the corresponding exemplary BibTeX entry.
+As mentioned above, depending on the publication type you want to cite (\emph{e.g.} conference papers, books, \emph{etc.}), there are different \textbf{required fields} you must provide in your bibliography. Below, you'll find examples for (almost) all publication types you'll need.
+For each type, we list the required fields you have to provide in your bibliography (such as \texttt{title}, \texttt{author}, \emph{etc.}) within the corresponding exemplary BibTeX entry.
 Also pay special attention to the additional notes/caveats as these summarize common mistakes you should avoid.
 
 %% Conference
 \bibtexample{Conference Paper}{examples/bibtex_proceedings.tex}{%
   \begin{itemize}
-    \item[{[17]}] J. Doe and J.~J. Smith. A Solution to Foo. In \textit{Proceedings of the IEEE Conference on Scientific Writing}, 2014.
+    \item[{[42]}] J. Doe and J.~J. Smith. A Solution to Foo. In \textit{Proceedings of the Conference on Scientific Writing}, 2021.
   \end{itemize}%
 }{%
   \begin{itemize}
-    \item You have to \textbf{explicitly write} ``Proceedings of the'' or ``Proc. of the'' inside the \texttt{booktitle} field.
+    \item You have to \textbf{explicitly write} ``\emph{Proceedings of the}'' or ``\emph{Proc. of the}'' inside the \texttt{booktitle} field.
     \item The extra curly braces (\emph{e.g.} \texttt{\{F\}oo}) within the \texttt{title} field ensure that the \textbf{capitalization} won't be changed by BibTeX.
     \item Conference proceedings are usually digital -- there is no need to include \emph{volume} or \emph{pages} (it's also surprisingly difficult to get this information correctly)!
-    \item Ensure that you write the conference names correctly ordered -- if an online library uses lexicographic entries, \emph{e.g.} conference name similar to \emph{``\badstyle{Scientific Writing, Int. Conf. on}''}, you have to use \texttt{booktitle = \{Proceedings of the International Conference on Scientific Writing\}} instead.
-    \item Ordinal numbers should not be included in the conference name, \emph{e.g.} instead of \emph{``\badstyle{23\textsuperscript{rd}} International Conference on Frobnication''} use \texttt{booktitle = \{Proceedings of the International Conference on Frobnication\}}.
+    \item Ensure that you write the conference names correctly ordered -- if an online library uses lexicographic entries, \emph{e.g.} a conference name similar to \emph{``\badstyle{Scientific Writing, Conference on}''}, you have to correct this as \texttt{booktitle = \{Proceedings of the Conference on Scientific Writing\}}.
+    \item Ordinal numbers should not be included in the conference name, \emph{e.g.} remove the ``\emph{23\textsuperscript{rd}}'' within ``\emph{\badstyle{23\textsuperscript{rd}} International Conference on Frobnication.}''
   \end{itemize}%
 }
 
@@ -374,9 +354,8 @@ Also pay special attention to the additional notes/caveats as these summarize co
   \end{itemize}%
 }{%
   \begin{itemize}
-   \item Some journals only publish \emph{volumes} -- \textbf{always double-check} if there is a \emph{number/issue}.
-   % \item This example also shows how to correctly typeset \emph{diacritics} or \emph{umlauts}, both in LaTeX and BibTeX, \emph{e.g.} \texttt{\textbackslash{v}\{r\}} produces \v{r}, \texttt{\textbackslash"A} produces \"A, \texttt{\textbackslash'a} produces \'a, \emph{etc.}
-   \item Use a \textbf{hyphen} (double dash) for the page range, \emph{i.e.} \texttt{pages = \{1409--1422\}}. A single dash should only be used for compound words, \emph{e.g.} ``state-of-the-art''.
+   \item \textbf{Always double-check} the \emph{volume} and \emph{number/issue} (some journals only publish \emph{volumes}).
+   \item Use a \textbf{hyphen} (double dash) for the page range, \emph{i.e.} \texttt{pages = \{1409--1422\}}.
   \end{itemize}
 }
 \vfill
@@ -388,22 +367,19 @@ Also pay special attention to the additional notes/caveats as these summarize co
     \item[{[48]}] C.~M. Bishop. \textit{Pattern Recognition and Machine Learning}. Springer, first edition, 2006.
   \end{itemize}%
 }{}
-\vfill
 
 %% Book chapter
 \bibtexample{Book Chapter}{examples/bibtex_bookchapter.tex}{%
   \begin{itemize}
-    \item[{[49]}] C.~M. Bishop and J. Lasserre. \textit{Bayesian Statistics}, volume 8, chapter \textit{Generative or Discriminative? Getting the Best of Both Worlds}, pages 3--24. Oxford University Press, 2007.
+    \item[{[49]}] C.~M. Bishop and J. Lasserre. \textit{Bayesian Statistics}, chapter \textit{Generative or Discriminative? Getting the Best of Both Worlds}, pages 3--24. Oxford University Press, 2007.
   \end{itemize}%
 }{%
   \begin{itemize}
-   \item Be aware that in this case the \emph{title} field is the \textbf{title of the
-   book}, whereas the \emph{chapter} field is the name of the \textbf{actual
+   \item Be aware that in this case the \textbf{\emph{title} field} is the \textbf{title of the
+   book}, whereas the \textbf{\emph{chapter} field} is the name of the \textbf{actual
    contribution!}
   \end{itemize}
 }
-
-% \vfill
 
 
 %% Thesis
@@ -412,7 +388,7 @@ Also pay special attention to the additional notes/caveats as these summarize co
     \item[{[99]}] P. Fearnhead. \textit{Sequential Monte Carlo methods in filter theory}. PhD thesis, University of Oxford, Department of Statistics, 1998.
   \end{itemize}%
 }{\begin{itemize}
-    \item If you cite a master's thesis, use the BibTeX entry \texttt{@mscthesis} instead.
+    \item For a master's thesis, use the BibTeX entry type \texttt{@mscthesis} instead.
   \end{itemize}}
 
 % \vfill
@@ -423,32 +399,28 @@ Also pay special attention to the additional notes/caveats as these summarize co
   \end{itemize}%
 }{}
 
-% \vfill
-% 
-% \pagebreak
 %% arXiv
+% @Peter: bitte aendern, falls dir mein arXiv Stil nicht passt
 \bibtexample{Papers found on arXiv}{examples/bibtex_arxiv.tex}{%
   \begin{itemize}
     \item[{[99]}] H. Nam, M. Baek, and B. Han. Modeling and Propagating CNNs in a Tree Structure for Visual Tracking. \textit{arXiv CoRR}, abs/1608.07242, 2016. URL \texttt{https://arxiv.org/abs/1608.07242}.
   \end{itemize}%
 }{\begin{itemize}
-    \item \textbf{Double-check any arXiv content} -- has the paper already been published at a conference/journal?
+    \item \textbf{Double-check} (and then triple-check) \textbf{any arXiv content} -- are you really sure that the paper has not been published already at a conference/journal?
   \end{itemize}}
-% TODO Peter: bitte aendern, falls dir mein arXiv Stil nicht passt
 
-% \vfill
 %% URLs
 \bibtexample{URLs}{examples/bibtex_url.tex}{%
   \begin{itemize}
-    \item[{[13]}] J.-Y. Bouguet. Camera Calibration Toolbox for Matlab. \texttt{http://www. vision.caltech.edu/bouguetj/calib\_doc/index.html}, 2010. Online; accessed July 26, 2017.
+    \item[{[13]}] J.-Y. Bouguet. Camera Calibration Toolbox for Matlab. \texttt{http://www. vision.caltech.edu/bouguetj/calib\_doc/index.html}, 2010. Online; accessed July 30, 2017.
   \end{itemize}%
 }{%
 \begin{itemize}
-  \item Use URLs \textbf{only if you really have to}, \emph{e.g.} referring to a software toolbox.
+  \item Use URLs in your bibliography \textbf{only if you really have to}, \emph{e.g.} when referring to a software toolbox or framework that you used.
   
   \item It is recommended that you place URL references within footnotes (\LaTeX: \lstinline[language={[LaTeX]TeX},basicstyle=\bfseries]{\\footnote\{\}}) instead of your bibliography.
    
-\item URLs may contain characters with special meaning to LaTeX/BibTeX, such as the underscore above. To prevent compilation errors, properly escape those characters, \emph{e.g.} use \texttt{'\textbackslash\_'} instead of a plain \texttt{'\_'}. The same also applies for the 
+\item URLs may contain characters with special meaning to \LaTeX/BibTeX, such as the underscore above. To prevent compilation errors, properly escape those characters, \emph{e.g.} use \texttt{'\textbackslash\_'} instead of a plain \texttt{'\_'}. The same also applies for the 
    $\sim$ symbol, which -- when copied from URLs -- would be incorrectly interpreted as
    protected space. Thus, you can use
    \lstinline[language={[LaTeX]TeX},basicstyle=\bfseries]{$\\sim$},
@@ -460,38 +432,33 @@ Also pay special attention to the additional notes/caveats as these summarize co
 
 
 % \vfill
-
+\pagebreak
 \subsection{BibTeX Best Practices}
 \label{sec-bibtex-extras}
-
-
 \begin{itemize}
-
 \item To ensure that BibTeX-entries are shown correctly in the bibliography some
 special formatting rules have to be followed:
-\vspace{-0.6cm}
-\bibtexampleplain{BibTeX Special Formating Rules}{
+% 
+\bibtexampleplain{BibTeX Special Formatting Rules}{
 \begin{itemize}[leftmargin=1em]
-  \item The extra curly braces (\emph{e.g.} \texttt{\{F\}oo}) within the \texttt{title} ensure that the capitalization won't be changed by BibTeX.
+  \item Put extra curly braces within the \texttt{title} field to ensure that the capitalization won't be changed by BibTeX, \emph{e.g.} \texttt{title = \{\{T\}his is a \{C\}apitalized \{F\}oo\}}.
 
-  \item To ensure a correct typesetting of \emph{diacritics} or \emph{umlauts}, use the corresponding \LaTeX-commands: \emph{e.g.} \texttt{\textbackslash{v}\{r\}} produces \v{r}, \texttt{\textbackslash"A} produces \"A, \texttt{\textbackslash'a} produces \'a, \emph{etc.} See also Section~\ref{sec-spec:tex} on how to typeset umlauts and diacritics in \LaTeX.
+  \item Use the corresponding \LaTeX~commands to typeset \emph{diacritics} or \emph{umlauts}, \emph{e.g.} \texttt{\{\textbackslash{v}\{r\}\}} produces \v{r}, \texttt{\{\textbackslash"A\}} produces \"A, \texttt{\{\textbackslash'a\}} produces \'a, \emph{etc.} See also Section~\ref{sec-spec:tex} on how to typeset umlauts and diacritics in \LaTeX.
 
   \item Use double dashes for the page range, \emph{i.e.} \texttt{pages = \{1409--1422\}}. A single dash is reserved for compound words, \emph{e.g.} ``state-of-the-art''.
 \end{itemize}}
 
 \item BibTeX allows several ways to list the author names of a publication.
 To ensure that first and surnames are always identified (and typeset) correctly, we recommend you use the following format:
-\vspace{-0.6cm}
+% 
 \bibtexample{BibTeX Author Names}{examples/bibtex_authors.tex}{}{}{}
 
-\item Define BibTeX strings (similar to constant variables or pre-processor defines) to ensure consistent conference/journal names and simplify changing the name (\emph{e.g.} due to a typo):
-%
-\vspace{-0.6cm}
+\item Define BibTeX strings for conference/journal names. These are similar to constant variables or pre-processor defines and ensure that you use the corresponding conference/journal name consistently. Additionally, they simplify changing the name (\emph{e.g.} to fix a typo):
+% 
 \bibtexample{BibTeX Strings}{examples/bibtex_strings.tex}{}{}{}
 
-\item Organize your bibliography entry labels such that you can recall the papers easily while writing: a label like \texttt{vwa:style-guide} may be easier to recall/remember than labels such as \texttt{guideline-document-for-course-on-scientific-writing}. You can also add arbitrary prefixes to create your own label taxonomy:
+\item Organize the labels of your bibliography entry such that you can easily recall the papers while writing: a label like \texttt{best-practices} may be easier to recall/remember than \texttt{dos-and-donts-for-scientific-writing-and-presenting}.\\You can also add arbitrary prefixes to create your own label taxonomy:
 %
-\vspace{-0.4cm}
 \bibtexample{BibTeX Labels}{examples/bibtex_labels.tex}{}{}{}
 
 \end{itemize}
@@ -517,7 +484,7 @@ BibTeX collects all bibliography entries you referred to in your document. From 
 This run yields a warning like ``\emph{References may have changed, rerun}'' indicating that the page numbers of some citations may have changed (due to replacing the previous ``[?]'' by the correct reference).
 
 \item \texttt{pdflatex mypaper.tex}\\[.5em]
-Done -- submit your PDF.
+Done -- now you have your final PDF.
 
 \end{enumerate}
 
@@ -830,8 +797,7 @@ For suggestions on improving your presentation skills, we recommend the text boo
   
   \begin{itemize}[leftmargin=6pt]
     \item Place \textbf{references within square brackets} to easily tell copied content from your own contribution/creation. In the example above, the bottom-right figure has been created by the author/speaker (whereas all others have been taken from somewhere else).
-    \item Avoid long URLs (e.g. when you copy illustrations) which would clutter your slides. \textbf{Shorten web links and use hyperlinks} to the full URL instead. For example, the top-left image source {\scriptsize\texttt{[www.icg.tugraz.at]}} is a hyperlink pointing to {\scriptsize\texttt{https://www.tugraz.at/fileadmin/\_processed\_/7/4/hololens\_header\_960.jpg}}
-%TODO change urls
+    \item Avoid long URLs (e.g. when you copy illustrations) which would clutter your slides. \textbf{Shorten web links and use hyperlinks} to the full URL instead. For example, the top-left image source {\scriptsize\texttt{[www.icg.tugraz.at]}} is a hyperlink pointing to {\scriptsize\texttt{https://www.icg.tugraz.at/some/long\_and\_cluttered/path/to/the/actual/image.jpg}}
     \item In contrast to a paper/thesis/report, a single slide offers only very limited space. Thus, we recommend to shorten citations/paper references as follows (see also {\scriptsize[Poier'18]} in this example):
     \begin{itemize}[leftmargin=12pt]
       \item abbreviate the author list (\emph{cf.} Section~\ref{sec-author-names-et-al}),
@@ -1106,18 +1072,17 @@ If you are interested in more details, we recommend the following books:
   \item \bibentry{book:MLA09}.
   \item \bibentry{book:Wallwork16}.
 \end{itemize}
-\paragraph*{Scientific Presentations:}
-% TODO Peter, hast du da weitere Empfehlungen?
-\begin{itemize}
-  \item \bibentry{book:schwabish-presentations}.
-\end{itemize}
-
 \paragraph*{Mathematical Writing:}
 \begin{itemize}
   \item \bibentry{mermin89}.
   \item \bibentry{book:Vivaldi14}.
   \item \bibentry{book:knuth89}.
   \item \bibentry{book:knuth86}.
+\end{itemize}
+\paragraph*{Scientific Presentations:}
+% TODO Peter, hast du da weitere Empfehlungen?
+\begin{itemize}
+  \item \bibentry{book:schwabish-presentations}.
 \end{itemize}
 
 \newpage
