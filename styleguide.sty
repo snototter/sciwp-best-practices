@@ -81,7 +81,8 @@
       \vspace*{5cm}%
       \centering%
       {\LARGE\bfseries\@title}\\[1cm]%
-        {\normalsize A beginner's guide to avoid common mistakes and\\pitfalls when creating scientific works\\[4cm]{\large\@author}}%\\[6cm]%
+        {\normalsize A beginner's guide to avoid common mistakes and\\pitfalls when creating scientific works}\\[4cm]%
+        {\large\@author}%
 %TODO remove?         {\footnotesize This Handout complements the Seminar\\[0.5em]\emph{Writing Scientific Papers\\[0.2em](Verfassen wissenschaftlicher Arbeiten)\\[0.2em]INH.01121UF}}}%
     \end{minipage}%
   \end{center}%
@@ -341,7 +342,6 @@
 
 
 % Provide hyperref-less links to avoid hyperref confusion...
-% \newcommand{\nohrefcite}[1]{\begin{NoHyper}\cite{#1}\end{NoHyper}}
 \newcommand{\nohrefcite}[1]{{\protect\NoHyper\cite{#1}\protect\endNoHyper}}
 \newcommand{\nohref}[1]{\begin{NoHyper}\ref{#1}\end{NoHyper}}
 

@@ -38,17 +38,16 @@
 
 \section{Introduction}
 \label{sec-intro}
-Scientific communication -- especially writing, but also presenting -- is a craft with a steep learning curve, as every ``fresh'' PhD student is about to learn.
-The goal of this document is to accompany students on this ``climb'' and provide you helpful tipps \& recommendations for writing your first scientific papers and presenting your work.
+Scientific communication -- especially writing, but also presenting -- is a craft with a steep learning curve, as each and every student is about to learn.
+The goal of this document is to accompany students on this ``climb'' and provide you the basics (helpful tipps \& recommendations) for writing your first scientific papers and presenting your work.
+These recommendations focus on the Computer Science domain, although most are universally valid for other research fields, too.
 
-\todo{refactor}
-We both taught this craft for several years at Graz University of Technology...
-This document accompanies our seminar \emph{"Writing Scientific Papers"} (German: \emph{"Verfassen wissenschaftlicher Arbeiten"}) where students should learn (1)~how to write scientific papers and (2)~how to prepare and give a scientific presentation. 
+Peter and Horst taught this craft for several years to their students at Graz University of Technology.
+A preliminary version of this document accompanied our seminars -- \emph{``Introduction to Scientific Working''} and \emph{``Writing Scientific Papers''} (German: \emph{"Verfassen wissenschaftlicher Arbeiten"}) -- where students learned (1)~how to write scientific papers and (2)~how to prepare and give a scientific presentation. 
 
 From our experience over the years, we summarized typical errors, so you can avoid them from the beginning.
-This guideline document presents the most important \goodstyle{dos} and \badstyle{dont's} to help you get started with scientific writing/presenting.
-To this end, you should be aware of the following topics:
-% An additional goal is to point out typical errors, to avoid them from the beginning. In fact, three out of four comments are the same for all students. In this way, we collected such typical error cases (from the experience of former courses) and additionally give examples for \goodstyle{dos} and \badstyle{dont's}, with special emphasis on typesetting in \LaTeX. Indeed, this is a living document, extended and adapted permanently, but the main points are already summarized. In particular, we summarize the following topics:
+Thus, we include the most important \goodstyle{dos} and \badstyle{dont's} to help you get started with scientific writing and presenting.
+To this end, you should be aware of:
 \begin{itemize}
 \item How to cite papers correctly (Section~\ref{sec-references}).
 \item What (not) to include in a bibliography (Section~\ref{sec-bibtex}).
@@ -86,7 +85,7 @@ Besides the clear advice to let others \textbf{proofread your papers and slides}
 However, \textbf{always use such tools with a grain of salt} -- these tools are a great means to identify common errors, but they may also miss some errors or incorrectly warn you (due to some specialties of scientific texts in contrast to standard literature).
 
 
-\pagebreak
+\newpage
 \section{References \& Citations}
 \label{sec-references}
 
@@ -256,7 +255,7 @@ The following subsections present \goodstyle{best practice examples} and \badsty
 
 
 
-
+\newpage
 \section{Bibliography}
 \label{sec-bibtex}
 
@@ -525,7 +524,7 @@ Done -- submit your PDF.
 
 
 
-\pagebreak
+\newpage
 \section{Figures and Tables}
 \label{sec-figures}
 
@@ -635,7 +634,7 @@ Check the examples within this section on how to correctly use \verb,~\ref{},.
 \end{texexample}
 
 
-\pagebreak
+\newpage
 \section{Mathematical Writing}
 \label{sec-mathematics}
 
@@ -740,6 +739,7 @@ Use them to improve the reading flow of more complex equations:
 \end{itemize}
 
 
+\newpage
 \section{Plagiarism}
 \label{sec-plagiarism}
 \badstyle{Plagiarism is not tolerated!} Follow the recommendations in Sections~\ref{sec-references} and~\ref{sec-figures} and pay attention to the examples within this section to create scientifically correct documents.
@@ -827,7 +827,7 @@ Publishing companies typically hold the copyright of the papers they publish (in
 Thus, if you copy an illustration from someone else's paper (without permission from the copyright holder, \emph{e.g.} author or publisher), \textbf{you breach the copyright} -- even if you cite their paper correctly by stating ``\emph{Image taken from [1]}.''
 
 
-\pagebreak
+\newpage
 \section{Best Practices for Slide Decks}
 \label{sec-presentations}
 This section summarizes the most important tips to prepare a slide deck for a scientific presentation.
@@ -918,7 +918,7 @@ For more detailed suggestions and recommendations on improving your presentation
 
 
 
-
+\newpage
 \section{Scientific Writing \& Language}
 \label{sec-writing}
 
@@ -1114,9 +1114,7 @@ the reading flow (and prevent your reader from falling asleep).
 
 
 
-\pagebreak
-% \phantomsection
-% \addcontentsline{toc}{section}{Further Reading}
+\newpage
 \vspace{1cm}
 \section{Further Reading}
 \label{sec-further-reading}
@@ -1134,6 +1132,7 @@ If you are interested in more details, we recommend the following books:
 \paragraph*{Scientific Writing:}
 \begin{itemize}
   \item \bibentry{book:alley-writing}.
+  \item \bibentry{book:Lebrun11}.\\\emph{Note:} an updated ``Scientific Writing 3.0'' is scheduled for release in November 2021.
   \item \bibentry{book:Creme03}.
   \item \bibentry{book:MLA09}.
   \item \bibentry{book:Wallwork16}.
@@ -1152,7 +1151,7 @@ If you are interested in more details, we recommend the following books:
   \item \bibentry{book:knuth86}.
 \end{itemize}
 
-\pagebreak
+\newpage
 \phantomsection
 \addcontentsline{toc}{section}{\listewaexamples}
 \listofewaexample
@@ -1160,16 +1159,9 @@ If you are interested in more details, we recommend the following books:
 \phantomsection
 \addcontentsline{toc}{section}{\listewabibentry}
 \listofewabibentry
-\pagebreak
-
 
 %----------------------------------------------------------------------
-% \addcontentsline{toc}{section}{References}
+% We need a hidden bibliography to use citations within our guideline document
 \bibliographystyle{plain}
-% % \bibliography{references}
 \nobibliography{references}
-% \bibliographystylestd{plain}
-% \bibliographystd{references}
-
 \end{document}
-%----------------------------------------------------------------------
