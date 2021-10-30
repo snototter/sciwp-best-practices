@@ -1,2 +1,2 @@
-# sciwp-best-practices
-Recommendations (Do's and Don'ts) for Scientific Writing &amp; Presenting
+# Best Practices for Scientific Writing &amp; Presenting
+This document collects our recommendations (Do's and Don'ts) for Scientific Writing &amp; Presenting.
