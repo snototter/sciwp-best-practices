@@ -74,7 +74,7 @@ This includes the generation of bibliographies, correct and consistent citation,
 
 To help you get started with \LaTeX, this document provides several typesetting examples.
 This, however, is not a step-by-step \LaTeX~tutorial.
-If you have never used \LaTeX~before, you may want to check out a beginner's tutorial, for example, \url{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes} or \url{https://latex-tutorial.com/tutorials/} and refer to Q\&A sites, such as the awesome community on \url{https://tex.stackexchange.com}.
+If you have never used \LaTeX~before, you may want to check out a beginner's tutorial (\emph{e.g.} on \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{Overleaf}\footnote{Overleaf \LaTeX~tutorial: \url{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}}) and refer to Q\&A sites, such as the great community site on \href{https://tex.stackexchange.com}{\TeX~-- \LaTeX~Stack Exchange}\footnote{\TeX~-- \LaTeX~Stack Exchange: \url{https://tex.stackexchange.com}}.
 
 \newpage
 \section{References \& Citations}
@@ -98,7 +98,7 @@ As a \textbf{warm-up exercise}, look up the rankings and metrics/impact factors 
 
 \subsubsection*{Direct Quotations:}
 If you ever need to copy text directly, ensure that these \emph{direct quotations} are clearly made apparent \badstyle{to avoid plagiarism}.
-This can be done by changing the layout to highlight the copied text passages: use italicized fonts, quotation marks, and put the text in an indented block.
+This can be done by changing the layout to highlight the copied text passages. For example: use italicized fonts, quotation marks, and put the text in an indented block.
 % 
 For example, the Austrian Universitätsgesetz 2002~(UG) defines plagiarism as:
 \begin{center}
@@ -109,7 +109,8 @@ For example, the Austrian Universitätsgesetz 2002~(UG) defines plagiarism as:
 
 Note, however, that computer science papers almost \textbf{never use direct quotations}.
 Instead, we use \textbf{indirect quotations}, which means that content from others (algorithms, ideas, evaluations, data, \emph{etc.}) is only referred to or summarized in your own words.
-The following subsections present \goodstyle{best practice examples} and \badstyle{common mistakes} you should mind when writing your papers.
+For more details, refer to the plagiarism examples in Section~\ref{sec-plagiarism}.
+% The following subsections present \goodstyle{best practice examples} and \badstyle{common mistakes} you should mind when writing your papers.
 % To do this correctly, follow these guidelines:
 
 \subsection{Referencing a Paper}
@@ -117,7 +118,7 @@ The following subsections present \goodstyle{best practice examples} and \badsty
 \begin{itemize}
 \item Whenever you mention a method \textbf{for the first time} in a document, cite the corresponding paper. For example, ``we use \goodstyle{SIFT~\nohrefcite{lowe04}} features to match corresponding points between image pairs''.
 
-\item \textbf{Back your statements by references} -- if you say ``this is well known/this has been done before'', also list relevant papers.
+\item \textbf{Back your statements by references} -- if you say ``this is well known/this has been done before'', also list the relevant papers (those which have done ``this'' before or which have proposed ``this'').
 
 \item References are \textbf{part of the sentence} -- thus, pay attention to correct punctuation: ``\goodstyle{[...]~poses and scales~[5].}`` instead of ``\badstyle{[...]~poses and scales. [5]}''.
  
@@ -125,7 +126,7 @@ The following subsections present \goodstyle{best practice examples} and \badsty
  
 \item There must be a single space between the text and the reference: ``\goodstyle{[...]~object detection{\textvisiblespace}[5]}'' instead of ``\badstyle{[...]~object detection[5]}'' or ``\badstyle{[...]~object detection{\textvisiblespace}{\textvisiblespace}[5]}''.
  
-\item To cite a paper with \LaTeX, you need to have a bibliography entry (will be explained in Section~\ref{sec-bibtex}) and simply use the \texttt{\textbackslash{cite}\{\}} command. To prevent unwanted line breaks, always use a \emph{protected space} (special character '\texttt{$\sim$}')  instead of a standard space '\textvisiblespace' -- pay attention to the \LaTeX~source of the following examples.
+\item To cite a paper with \LaTeX, you need to have a bibliography entry (will be explained in Section~\ref{sec-bibtex}) and simply use the \texttt{\textbackslash{cite}\{\}} command. To prevent unwanted line breaks, always use a \emph{protected space} (special character '\texttt{$\sim$}')  instead of a standard space '\textvisiblespace' -- pay attention to the corresponding \LaTeX~sources of the following examples.
 \end{itemize}
 % 
 \begin{goodexample}[Correct Citation of a Single Paper]
@@ -193,7 +194,7 @@ The following subsections present \goodstyle{best practice examples} and \badsty
         \item Three or more: Everyman \emph{et al.}~[2] studied frobnicating machines.
     \end{itemize}
 
-    \vspace{2.0em}
+    \pagebreak
 
     {\normalsize\setstretch{1.2}
     \textbf{Bibliography of this Example:}
@@ -259,7 +260,7 @@ Additionally, we demonstrate how to \textbf{correctly compile a PDF with \LaTeX+
 \label{sec-bibtex-general}
 
 \begin{itemize}
-\item \textbf{Never copy a bibliography entry} without double-checking it yourself (neither from the internet, nor from another paper's bibliography)! Unfortunately, many published papers (even from top-tier conferences and high impact journals) contain sloppy and/or incorrect references. Similarly, references listed on Google Scholar, ResearchGate, \emph{etc.} are quite often incomplete. Thus, check every reference you want to add to your paper for:
+\item \textbf{Never copy a bibliography entry} without double-checking it yourself (neither from the internet, nor from another paper's bibliography)! Unfortunately, many published papers (even from top tier conferences and high impact journals) contain sloppy and/or incorrect references. Similarly, references listed on Google Scholar, ResearchGate, \emph{etc.} are quite often incomplete. Thus, check every reference you want to add to your paper for:
 % \item Thus, it is necessary to check every reference for
 %
 \vspace{-0.25cm}
