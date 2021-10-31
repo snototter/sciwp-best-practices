@@ -98,18 +98,25 @@
            text width=8cm]
           at ([yshift=120mm]current page.south)
           {{\@author}};
-% 
-    \node [font=\normalsize,
-           align=center,
-           anchor=south]
-          at ([yshift=40mm]current page.south)
-          {\footnotesize{Version \@version}};
 %           
     \node [font=\normalsize,
            align=center,
-           anchor=south]
-          at ([yshift=34mm]current page.south)
-          {\footnotesize{Graz, \@date}};
+           anchor=south,
+           text width=8cm]
+          at ([yshift=55mm]current page.south)
+          {Version \@version\\[1mm]Graz, \@date};
+%
+    \node [anchor=south]
+          at ([yshift=35mm]current page.south)
+          {\includegraphics[width=3cm]{examples/cc-by-sa.png}};
+%
+    \node [font=\scriptsize,
+           align=center,
+           anchor=north,
+           text width=8cm,
+           text=lgray]
+          at ([yshift=35mm]current page.south)
+          {This guide is shared as\\CC-BY-SA 4.0};
 % 
     \node[inner sep=2pt,
           anchor=south,
