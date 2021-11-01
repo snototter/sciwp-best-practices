@@ -2,7 +2,7 @@
 A collection of recommendations/best practices/dos and don'ts for scientific writers &amp; presenters (especially for Computer Science students) based on our experience, us checking the books on these topics, as well as us correcting the recurring mistakes from our students (over and over and over again).
 
 ### Why should I care?
-You won't be successful unless you learn how to communicate your research/ideas/findings to your audience.
+One of the most important talents - besides coming up with ideas worth pursuing - is to communicate your research/ideas/findings to your audience.
 Scientific writing is an actual craft and many students only realise this upon the first rejections (e.g. due to clarity issues).
 This document helps you avoid the most common pitfalls and mistakes beginners stumble upon.
 
